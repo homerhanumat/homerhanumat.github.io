@@ -4,7 +4,6 @@ title: "A Test Post"
 date: 2014-01-19 11:24:12 -0500
 comments: true
 categories:
-markdown:rdiscount 
 ---
 
 Test post.  Is this **really** markdown?
