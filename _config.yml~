@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://homerhanumat.github.io
-title: A Statistics Blog
-subtitle: R for Statistics Education, and infromation for the courses I teach.
-author: Homer White
+title: My Octopress Blog
+subtitle: A blogging framework for hackers.
+author: Your Name
 simple_search: http://google.com/search
 description:
 
