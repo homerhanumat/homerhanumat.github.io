@@ -9,7 +9,7 @@ categories:
 # Rain and the Rhinoceros
 
 {% pullquote %}
-Let me say this before rain becomes a utility that they can plan and distribute for money. By "they" I mean the people who cannot understand that rain is a festival, who do not appreciate its gratuity, who think that what has no price has no value, that what cannot be sold is not real, so that {" This is is the opening paragraph of Merton's famous essay "} the only way to make something actual is to place it on the market. The time will come when they will sell you even your rain. At the moment it is still free, and I am in it. I celebrate its gratuity and its meaninglessness. 
+Let me say this before rain becomes a utility that they can plan and distribute for money. By "they" I mean the people who cannot understand that rain is a festival, who do not appreciate its gratuity, who think that what has no price has no value, that what cannot be sold is not real, so that the only way to make something actual is to place it on the market. {" The time will come when they will sell you even your rain. "} At the moment it is still free, and I am in it. I celebrate its gratuity and its meaninglessness. 
 {% endpullquote %}
 
 Maybe someone would like to look at a video:
