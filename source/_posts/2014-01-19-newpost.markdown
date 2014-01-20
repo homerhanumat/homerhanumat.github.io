@@ -29,7 +29,7 @@ You can also embed plots, for example:
 
     plot(cars)
 
-![plot of chunk unnamed-chunk-2](/images/figure/unnamed-chunk-2.png) 
+![A plot of cars](~/octopress/source/images/figure/carplot.png) 
 
  
 Also some math:
