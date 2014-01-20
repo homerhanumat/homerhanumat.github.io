@@ -14,7 +14,7 @@ Let me say this before rain becomes a utility that they can plan and distribute 
 
 Maybe someone would like to look at a video:
 
-{% video http://youtu.be/qCwdwrVZnj0 640 320 http://homerhanumat.github.io/images/video.test.jpg %}
+{% video http://youtu.be/qCwdwrVZnj0 640 320 http://homerhanumat.github.io/images/videotest.jpg %}
 
 {% blockquote %}
 Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.
