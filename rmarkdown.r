@@ -12,7 +12,7 @@
 #' @param recursive should rmd files in subdirectories be processed.
 #' @return nothing.
 #' @author Jason Bryer <jason@bryer.org>
-convertRMarkdown <- function(dir=getwd(), images.dir='~/octopress/source/images', images.url='~/octopress/source/images/',
+convertRMarkdown <- function(dir=getwd(), images.dir='~/octopress/source/images', images.url='file://~/octopress/source/images/',
                                                          out_ext='.markdown', in_ext='.rmd', recursive=FALSE) {
         require(knitr, quietly=TRUE, warn.conflicts=FALSE)
         files <- list.files(path=dir, pattern=in_ext, ignore.case=TRUE, recursive=recursive)
