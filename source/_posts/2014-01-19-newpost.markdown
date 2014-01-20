@@ -29,7 +29,7 @@ You can also embed plots, for example:
 
     plot(cars)
 
-![A plot of cars](file:///home/homer/octopress/public/images/figure/carplot.png) 
+![A plot of cars](/images/figure/carplot.png) 
 
  
 Also some math:

@@ -12,8 +12,8 @@
 #' @param recursive should rmd files in subdirectories be processed.
 #' @return nothing.
 #' @author Jason Bryer <jason@bryer.org>
-convertRMarkdown <- function(dir=getwd(), images.dir='~/octopress/public/images', 
-                             images.url='file:///home/homer/octopress/public/images/',
+convertRMarkdown <- function(dir=getwd(), images.dir=dir, 
+                             images.url='/images/',
                              out_ext='.markdown', in_ext='.rmd', recursive=FALSE) {
         require(knitr, quietly=TRUE, warn.conflicts=FALSE)
         files <- list.files(path=dir, pattern=in_ext, ignore.case=TRUE, recursive=recursive)
@@ -39,6 +39,7 @@ convertRMarkdown <- function(dir=getwd(), images.dir='~/octopress/public/images'
                                         outFile <- paste(substr(f, 1, (nchar(f)-(nchar(in_ext)))), out_ext, sep='')
                                         render_markdown(strict=TRUE)
                                         opts_knit$set(out.format='markdown')
+                                        opts_knit$set(fig.path="images/")
                                         opts_knit$set(base.dir=images.dir)
                                         opts_knit$set(base.url=images.url)
                                         try(knit(text=content, output=outFile), silent=FALSE)
