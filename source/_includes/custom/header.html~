@@ -3,4 +3,5 @@
   {% if site.subtitle %}
     <h2>{{ site.subtitle }}</h2>
   {% endif %}
+ <img src="images/Rplotburlywood2.png" style="float:  right; width: 35%;">
 </hgroup>
