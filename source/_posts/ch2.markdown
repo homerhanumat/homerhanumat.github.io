@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Describing Patterins in Data
+title: Describing Patterns in Data
 published: true
 status: publish
 ---
