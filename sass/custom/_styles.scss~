@@ -9,5 +9,5 @@ ul#markdown-toc {
   list-style: none;
   float: right;
   @include shadow-box;
-  background-color: f2f2f2;
+  background-color: white;
 }
