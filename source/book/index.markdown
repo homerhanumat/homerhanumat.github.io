@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: page
 title: "MAT 111 Book"
 comments: false
 sharing: true

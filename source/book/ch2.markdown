@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: page
 title: Describing Patterns in Data
 published: true
 status: publish

@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: page
 title: Introduction
 published: true
 status: publish
