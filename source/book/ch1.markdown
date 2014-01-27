@@ -5,8 +5,6 @@ published: true
 status: publish
 ---
  
-* list element with functor item
-{:toc}
  
  
 

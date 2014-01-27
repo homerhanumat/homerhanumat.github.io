@@ -9,5 +9,61 @@ ul#markdown-toc {
   list-style: none;
   float: right;
   @include shadow-box;
-  background-color: white;
+  background-color: f2f2f2;
+}
+
+p.caption {
+  font-weight:  bolder;
+  text-align:  center;
+  
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style:  double;
+  border-color:  teal;
+  border-width:  medium;
+  padding:  10px 10px 10px 10px;
+}
+
+table, th, td
+{
+border: 1px solid black;
+}
+
+td
+{
+padding:15px;
+}
+
+table, td, th
+{
+border:1px solid green;
+}
+th
+{
+background-color:green;
+color:white;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  
+<!-- to apply the above rule, do grep: replace table element with table class="center"  -->
+
+dt {
+  font-weight:  bolder;
+  
+}
+
+dd {
+  display:  block;
+  border-style:  double;
+  border-color:  blue;
+  border-width:  medium;
+  padding:  5px 5px 5px 5px;
 }

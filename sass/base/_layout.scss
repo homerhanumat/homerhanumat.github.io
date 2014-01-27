@@ -43,6 +43,7 @@ $header-padding-bottom: 1.5em !default;
   }
 }
 
+
 body {
   -webkit-text-size-adjust: none;
   max-width: $max-width;
@@ -130,6 +131,8 @@ body.sidebar-footer {
 #main, #content, .sidebar {
   @extend .group;
 }
+
+
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
@@ -138,7 +141,7 @@ body.sidebar-footer {
     margin: 0 auto;
   }
   #content {
-    overflow: visible;
+    overflow:visible;
     margin-right: $sidebar-width-medium;
     position: relative;
     .no-sidebar & { margin-right: 0; border-right: 0; }

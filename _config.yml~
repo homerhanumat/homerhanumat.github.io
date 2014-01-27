@@ -33,7 +33,10 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: kramdown
+markdown: pandoc
+pandoc:
+  format: html5
+  extensions: [smart, mathjax, toc]
 rdiscount:
   extensions:
     - autolink
