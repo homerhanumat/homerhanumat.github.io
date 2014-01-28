@@ -42,6 +42,7 @@ convertRMarkdown <- function(dir=getwd(), images.dir=dir,
                                         opts_knit$set(fig.path="images/")
                                         opts_knit$set(base.dir=images.dir)
                                         opts_knit$set(base.url=images.url)
+                                        opts_knit$set(fig.width=3.5,fig.height=3,tidy=FALSE)
                                         try(knit(text=content, output=outFile), silent=FALSE)
                                 } else {
                                         warning(paste("Not processing ", f, ", status is '", status,

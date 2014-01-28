@@ -15,5 +15,6 @@ convertRMarkdown()
 system("cp figure/* ../source/images/figure")
 
 #Then move delete figure directory and move everything where it needs to go
+#I guess caches go to public/book
 
 #perhaps I should move my R project to octopress level??

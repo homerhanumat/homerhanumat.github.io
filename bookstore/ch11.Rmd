@@ -1,0 +1,354 @@
+---
+layout: page
+title: Goodness of Fit
+published:  false
+status:  process
+---
+
+# Goodness of Fit
+
+```{r  include=FALSE}
+opts_chunk$set(tidy=FALSE)
+```
+
+
+
+```{r echo=FALSE, message=FALSE}
+require(mosaic)
+require(tigerstats)
+```
+
+
+At the beginning of Chapter Two our very first foray into Descriptive Statistics concerned exploring the distribution of a single factor variable.  In this Chapter we will introduce a way to address inferential aspects of Research Questions about one factor variable.
+
+## The Gambler's Die
+
+Imagine that you are the Sheriff of a small town in the Wild, Wild West.  A professional gambler comes to town, and sets up shop in the local saloon.  He claims to play with a fair die, but he wins so much that the locals have begun to mutter that his die is loaded.  Since loaded dice are illegal in your town, it is up to you to investigate.  You impound the die.
+
+Ideally, you would take the die apart to see if it is weighted in one direction or another, but the gambler claims that it is his "lucky" die, and he begs you to do it no harm.  You decide to roll it a few times, instead.
+
+There are other pressing law enforcement matters in the town---gunfights, and the like---so you have time only for sixty rolls.  The results of the rolls are in the Table [60 Rolls of a Die].
+
+  **Spots**     One   Two   Three   Four    Five    Six
+  ----------    ----  ----  ------  ----    -----   ----
+  **Freq**      8     18    11      7       9       7    
+ --------       ----  ----  ----  ----      ----    ----
+ 
+ Table:  60 Rolls of a Die
+
+At once your eye is drawn to the rather large number of two-spots.  After all, if the six-sided die is really fair then the chance of a two-spot on any given roll is only 1 in 6, so you would expect only about ten twos in 60 rolls---give or take a few, of course, for chance variation.
+
+The locals notice the large number of twos as well.  They pull out their computers, fire up R, and perform a quick One-Proportion test with `binom.testGC()`:
+
+```{r}
+binom.testGC(x=18,n=60,p=1/6)
+```
+
+The results show that if the die is really fair, then the chance of 18 or more twos in sixty rolls is only about 0.009, which is less than 1%.  The locals prepare to ride the gambler out of town on a rail.
+
+You, on the other hand, know about Data Snooping, the dangerous practice of performing a test on the basis of a pattern you notice in your data.  You know that it's not really fair to concoct a test on the proportion of twos, simply because the twos grab your attention:  after all, the tally of the 60 rolls has six counts---one for each side of the die---and it stands to reason that one or more of the counts might depart quite a bit from its expected value of 10, just by chance variation.
+
+What you need is a test that takes all of the data, not just the count of twos, into account in an even-handed way.  This need puts you in mind of the $\chi^2$-statistic from Chapter Three:
+
+$$\chi^2=\sum_{\text{all cells}} \frac{(\text{Observed}-\text{Expected})^2}{\text{Expected}}.$$
+
+You table of counts has six cells, and if the die is fair then the expected count for each cell is 10---one-sixth of the 60 rolls.  You compute the $\chi^2$-statistic for the tally of the sixty rolls:
+
+$$\chi^2 = \frac{(8-10)^2}{10}+\frac{(18-10)^2}{10}+\frac{(11-10)^2}{10}+\frac{(7-10)^2}{10}+\frac{(9-10)^2}{10}+\frac{(7-10)^2}{10}= 8.8.$$
+
+The result is 8.8.  But you wonder: is this value too big to be explained as just due to chance variation in the sixty rolls of a fair die?
+
+Fortunately you have access to a simulator that will perform the following task:
+
+* it will roll a fair die 60 times;
+* it will tally the results, getting a table of observed counts;
+* it will compute the $\chi^2$-statistic for the table thus obtained;
+* it will repeat the preceding three steps as many times as you like, keeping track of the results and checking to see how many of them exceed the 8.8 value that you got in your actual study of the gambler's die.
+
+In order to use the simulator, you need to put together the table of observed counts:
+
+```{r}
+throws <- c(one=8,two=18,three=11,
+            four=7,five=9,six=7)
+```
+
+You also need to make a list of the probabilities for getting each of the six possible sides.  These probabilities are based on the temporary assumption that the die really is fair, so they are all equal to $1/6$:
+
+```{r}
+NullProbs <- rep(1/6,6)
+```
+
+Now you are ready to put this information into the simulator, the function `SlowGoodness()`:
+
+```{r eval=FALSE}
+SlowGoodness(throws,NullProbs)
+```
+
+Try the simulator for a good number of re-samples.  It does not seem terribly unlikely that a fair die would produce a 60-roll tally with a $\chi^2$-statistic of 8.8 or more.  Certainly the chance appears to be much larger than the 1% figure you were getting from `binom.testGC()`.  Maybe the gambler is honest, after all, and the large number of twos was just a fluke.
+
+## chisq.testGC() for Goodness of Fit
+
+The above procedure can be formulated in terms of a test of significance, which is called a *goodness-of-fit* test because it tests whether the observed values of some factor variable can reasonably be said to "fit" a given distribution.
+
+### The Gambler's Die as a Test of Significance
+
+In the foregoing study the factor variable at issue was **spots**, the number of spots on the upward-facing die, after it is thrown.  The given distribution is the set of probabilities for each side that amounts to the gambler's claim that the die is fair.  These "Null" probabilities appear in Table [Fair Die Probabilities].
+
+**Spots**     One   Two   Three   Four    Five    Six
+----------    ----  ----  ------  ----    -----   ----
+**Prob**      1/6   1/6   1/6     1/6     1/6     1/6    
+--------      ----  ----  ----  ----      ----    -----
+ 
+Table:  Fair Die Probabilities
+
+Now we are ready for the test.
+
+**Step One**:  Statement of Hypotheses
+
+  >$H_0$:  The die is fair (all sides have probability $1/6$).
+  
+  >$H_a$:  The die is weighted (at least one side has probability $\neq 1/6$)
+  
+**Step Two**:  Safety Check and Test Statistic
+
+For safety, all that is needed is to know that the 60 tosses of the die were random.
+
+As for the test statistic and other information needed in future steps, we run `chisq.testGC()`.  We must provide
+
+* the table of observed counts, and
+* an argument  `p` that gives the probabilities that go with the Null Hypothesis.
+
+We also plan to perform simulations in order to compute the P-value, so:
+
+* We must set the argument `simulate.p.value` to TRUE;
+* We should choose the number of re-samples, indicated by the argument `B`.  We'll set `B` to 2500.
+* For reproducibility of results, we should set a seed in advance with the `set.seed()` function.  Quite arbitrarily, we'll set the seed to 12345.
+
+The function call is:
+
+```{r cache=TRUE}
+set.seed(12345)
+throws <- c(one=8,two=18,three=11,
+            four=7,five=9,six=7)
+NullProbs <- rep(1/6,6)
+chisq.testGC(throws,p=NullProbs,
+             simulate.p.value=T,B=2500)
+```
+
+Note that the output gives the $\chi^2$-statistic as 8.8.
+
+**Step Three**:  P-value
+
+The simulated approximation to the P-value is 0.1148.
+
+  >**Interpretation of P-Value**:  *If the die is fair, then there is about an 11.48% of getting a $\chi^2$-statistic at least as large as the one we got in our study of the gambler's die.*
+  
+**Step Four**:  Decision
+
+  >Since $P=0.1148 > 0.05$, we do not reject the Null.
+
+**Step Five**  Conclusion
+
+  >This study did not provide strong evidence that the gambler's die was loaded.
+  
+### Facts About $\chi^2$ Goodness of Fit
+
+#### Null Distribution of the $\chi^2$-Statistic
+
+Mathematicians have studied the $\chi^2$-statistic under conditions where sample size is "big enough", and they have discovered the following:
+
+* When the Null Hypothesis is true, its EV is $df$, the "degrees of freedom."
+* In the goodness-of-fit situation---i.e., when one factor variable is under investigation---the $df$ figure is:
+
+$$df=\text{number of cells}-1.$$
+
+* The standard deviation of the $\chi^2$-statistic is:
+
+$$SD(\chi^2)=\sqrt{2 \times df}.$$
+
+Thus, in the Gambler's Die study,
+
+$$df=6-1=5,$$
+  
+so if the die is fair then we would expect the $\chi^2$-statistic to be around 5, give or take
+
+$$\sqrt{2 \times 5}=\sqrt{10} \approx 3.16$$
+
+or so.  From this point of view, the 8.8 value that we got does not seem very unlikely, if the Null is right:  it is not much more than one SD above the EV.
+
+As for what sample size counts as "big enough"" the results we stated above are quite accurate if the Null's expected cell counts are all at least five.  Mathematicians have even discovered a family of random variables, known as the $\chi^2$ family, such that at large sample sizes the $\chi^2$-statistic behaves like one of the members of this family, the member with the degrees of freedom given by the "cells minus one" formula.  Figure [Chi-Square df=5] shows a density curve for the $\chi^2$ curve with 5 degrees of freedom, with the area under the curve after 8.8 shaded in.  Note that the area is quite close to the P-value that we obtained through simulation.
+
+```{r chisqdf5,echo=FALSE,fig.cap="Chi-Square df=5"}
+invisible(pchisqGC(8.8, region="above",df=5,graph=T))
+```
+
+Since at large sample sizes the $\chi^2$ density curve will deliver approximately the right P-value, we usually don't ask for simulation.  For the Gambler's Die study, the function call would be:
+
+```{r eval=FALSE}
+chisq.testGC(throws,p=NullProbs)
+```
+
+If you would like to produce a graph of the P-value, you can do so by setting the `graph` argument to `TRUE`.
+
+```{r eval=FALSE}
+chisq.testGC(throws,p=NullProbs,graph=T)
+```
+
+If you have chose to simulate, you can get a graph of the re-sampled $\chi^2$-statistics:
+
+```{r eval=FALSE}
+chisq.testGC(throws,p=NullProbs,
+             simulate.p.value=T,B=2500,
+             graph=TRUE)
+```
+
+If any of the expected cell counts are below five, `chisq.testGC()` will issue a warning, in which case you should re-run the test using simulation.
+
+## Further Example:  Seating Preference
+
+Recalling the seating-preference variable **seat** in the `m111survey` data frame, one might ask the following
+
+  >**Research Qeestion**:  *In the Georgetown College population, is there equal perference for each type of seat:  front, middle and back?*
+  
+In this Research Question, we are interested in the distribution of a single factor variable:  **seat**.  We can use the $\chi^2$-goodness of fit test to see whether the data in the `m111survey` provide strong evidence that the GC population is not indifferent to seat-location.
+
+**Step One**:  Statement of Hypotheses
+
+If the GC population is indifferent, then the proportion of the populations that prefers each type of seat will be $1/3$, for each of the three possible values of **seat**.
+
+The Null Hypotheses may then be stated as:
+
+  >$H_0$:  Each of the three types of seat is preferred by one-third of the GC population.
+  
+The Alternative disagrees:
+
+  >$H_a$:  At least one of the three proportions claimed by the Null is wrong.
+  
+**Step Two**:  Safety Check and Test Statistic
+
+For safety, we must assume that the students in `m111survey` are like a simple random sample from the GC population, at least as far as seating preference is concerned.
+
+For the test statistic and other information needed in subsequent steps, we can use formula-data input to call `chisq.testGC()`:
+
+```{r}
+chisq.testGC(~seat,data=m111survey,
+            p=c(1/3,1/3,1/3))
+```
+
+We see that the P-value is about 0.01, which is less than our "cut-off" of 0.05, so we reject the Null and conclude that this data provided strong evidence that GC students are not equally likely to prefer any of the three seating locations.  (The middle appears to be most desired.)
+
+## Further Example:  Nexus Attendance
+
+A Nexus event held at Georgetown College in April of the Spring semester was attended by 200 students.  The class breakdown of the students is given in Table [Nexus Attendance].
+
+**Class**     Fresh   Soph   Junior   Senior
+----------    -----   ----   -------  ------
+  **Freq**    62      27     33       80
+ ----------   ----    ----   ----     ----      
+
+Table:  Nexus Attendance
+
+Suppose that is is known that the distribution of class rank at Georgetown College is as follows:
+
+* 30% freshmen,
+* 25% sophomores,
+* 25% juniors,
+* 20% seniors.
+
+We are interested in the following
+
+  >**Research Question**:  *Is the attendance at April Nexus events like a random sample of GC students?*
+  
+Note that in this Research Question the distribution of the variable **Class Rank** in the GC population in NOT at issue:  everyone knows that it is given by the percentages above.  What is at issue is whether the data on this Nexus event show that students are not attending randomly, in the sense that one's likelihood of attending a Nexus event in April might be associated with one's class rank.
+
+In this study the hypotheses should be stated as:
+
+  >$H_0$:  Attendance at the event was random.
+  
+  >$H_a$:  Likelihood of attendance depended on class rank.
+  
+Information needed for the remaining four steps comes from the following R-code:
+
+```{r}
+Nexus <- c(fresh=62,soph=27,junior=33,senior=80)
+NullClass <- c(0.30,0.25,0.25,0.20)
+chisq.testGC(Nexus,p=NullClass)
+```
+
+The $\chi^2$ statistic was about 55.8.  If the Null is true, then it should have been about 3 (the degrees of freedom), give or take
+
+$$\sqrt{2 \times 3}=\sqrt{6} \approx 2.45$$
+
+or so.  A value of 55.8 looks very bad for the Null!
+
+In fact, if the Null is right then the chance of getting a $\chi^2$-statistic of 55.8 or more is about $4.5 \times 10^{-12}$, which is a very tiny number indeed.  We reject the Null.  This event provided strong evidence that, in April, Nexus attendance depends on class rank.
+
+In fact, from the test output we see that the Null expected about 40.4 seniors to attend, whereas 80 in fact did.  Apparently GC seniors are scrambling for last-minute Nexus credits!
+
+## Further Example:  Too Good to be True?
+
+Imagine that a statistics professor gives a student the following Homework assignment:
+
+  >**Assignment**:  *Familiarize yourself with chance variation by rolling a fair die 6000 times.  Turn in a tally of your results.*
+  
+Most students would find the assignment rather onerous!
+
+Now suppose that the next day the student hands in the results shown in Table [6000 Rolls of a Fair Die?].
+
+  **Spots**     One   Two   Three   Four    Five    Six
+  ----------    ----  ----  ------  ----    -----   ----
+  **Freq**      1003  998   999     1002    1001    997
+ --------       ----  ----  ----    ----    ----    ----
+ 
+ Table:  6000 Rolls of a Fair Die?
+ 
+The professor observes that each cell count is quite close to what would be expected in 6000 rolls of a fair die.  But are the counts perhaps TOO close to what would be expected?  In other words:
+
+  >**Research Question**:  *Is the observed fit "too good to be true"?*
+
+Consider running a $\chi^2$-goodness of fit test on the data:
+ 
+```{r}
+AllegedRolls <- c(one=1003,two=998,three=999,
+            four=1002,five=1001,six=997)
+FairProbs <- rep(1/6,6)
+chisq.testGC(AllegedRolls,p=FairProbs)
+```
+
+As one might have guessed from the close agreement between observed and expected counts, the $\chi^2$ statistic is quite small, so the P-value---the chance of getting at least this value in 6000 rolls of a fair die---is quite large:  it is nearly 100%, in fact.
+
+But think of it the other way around:  if the table turned in by the student really was the result of tossing a fair die 6000 times, then what is the chance of getting such a small $\chi^2$-statistic?  It would have to be 1 minus the P-value given in the test output:
+
+```{r}
+1-0.9999931
+```
+
+This is a very small chance indeed!  It would be reasonable to infer that the student made up the tally table, but did not allow for a realistic amount of chance variation away from the expected cell counts!
+
+## Thoughts About R
+
+### Names for Elements in a List
+
+When you are working with summary data, you have to provide `chisq.testGC()` with a tally of the observed counts.  The output for the test is most readable if you also provide names for each of the possible values of the factor variable under study.  You can do so as you create the lists of observed counts. For example, if your variable has three possible values called "a", "b" and "c", with counts 13, 12 and 27 respectively, then you can create a named tally as follows:
+
+```{r eval=FALSE}
+ObsCounts <- c(a=13,b=12,c=27)
+```
+
+### Quick Null Probabilities
+
+For goodness of fit tests, `chisq.testGC()` requires that the `p` argument be set to the list of proportions claimed by the Null for the factor variable under study.  If these values are all the same, then you can write them quickly using the `rep()` function.
+
+`rep()` repeats a given value a given number of times.  For example to get 7 threes, just type:
+
+```{r}
+rep(3,7)
+```
+
+If there are eight null probabilities and they are all the same, then each would be $1/8$, so you could set them as follows:
+
+```{r}
+MyNulls <- rep(1/8,8)
+MyNulls
+```
+
