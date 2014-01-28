@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Probability for Sampling
-published: true
-status: process
+published: false
+status: publish
 ---
  
 # Probability for Sampling
