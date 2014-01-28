@@ -38,12 +38,6 @@ Try out this stuff:
 
 ```{r,echo=FALSE}
 set.seed(1737)
-srs.income<-popsamp(50,imagpop)
-xbar.income<-mean(~income,data=srs.income)
-```
-
-```{r,echo=FALSE}
-set.seed(1737)
 ```
 
 ```{r imagpopsamp1}
