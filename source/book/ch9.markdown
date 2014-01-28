@@ -64,7 +64,6 @@ A statistic is our *single best guess* at the value of a parameter.  Since we kn
 This is a research question about one population mean, $\mu$.  Let's estimate $\mu$ by drawing a SRS of size 50 from ``imagpop``.
  
 
-    ## Error: object 'srs.income' not found
 
  
 
@@ -74,20 +73,12 @@ This is a research question about one population mean, $\mu$.  Let's estimate $\
     srs.income<-popsamp(50,imagpop)
     mean(~income,data=srs.income)
 
-    ## Error: object 'srs.income' not found
+    ## [1] 40888
 
  
-Since we took a SRS, we can be fairly sure that this estimate, $\bar{x}=$ $ 
-
-    
-    Error in format(xbar.income, scientific = FALSE) : 
-      object 'xbar.income' not found
-    
-
- is *close* to the true parameter value.  However, if we re-run the code above, we will get a different value.
+Since we took a SRS, we can be fairly sure that this estimate, $\bar{x}=$ $ 40888 is *close* to the true parameter value.  However, if we re-run the code above, we will get a different value.
  
 
-    ## Error: object 'srs.income' not found
 
  
 
@@ -98,7 +89,7 @@ Since we took a SRS, we can be fairly sure that this estimate, $\bar{x}=$ $
     srs.income<-popsamp(50,imagpop)
     mean(~income,data=srs.income)
 
-    ## Error: object 'srs.income' not found
+    ## [1] 40888
 
  
 Because of this variation, we can also be reasonably certain that our statistic is *not exactly equal* to the true parameter value.  However, this gives us a good idea of a range into which our parameter value likely falls.  Look at the $\bar{x}$'s from 15 different samples:
