@@ -2,7 +2,7 @@
 layout: page
 title: Probability for Sampling
 published: true
-status: publish
+status: process
 ---
  
 # Probability for Sampling
