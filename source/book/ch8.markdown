@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Probability for Sampling
-published: false
+published: true
 status: publish
 ---
  
@@ -416,7 +416,7 @@ As an example, consider the attitudes experiment:
     help(attitudes)
 
  
-The question about spending habits involved an experiment:  some of the subjects were looking at a form in which \$20 was lost simply by the money falling out of a purse or wallet somehow.  Other subjects faced a scenario in which they had lost \$20 by purchasing a ticket and then losing that ticket.  Either way, the subject is down by \$20, so if everyone makes financial decisions on a purely rational basis, then one's decision about whether to attend the rock concert anyway should be unaffected by what form one is looking at:  a person who would elect to attend the concert after having lost money would also elect to attend after having lost a ticket, and vice versa.
+The question about spending habits involved an experiment:  some of the subjects were looking at a form in \$20 was lost simply by the money falling out of a purse or wallet somehow.  Other subjects faced a scenario in which they had lost \$20 by purchasing a ticket and then losing that ticket.  Either way, the subject is down by \$20, so if everyone makes financial decisions on a purely rational basis, then one's decision about whether to attend the rock concert anyway should be unaffected by what form one is looking at:  a person who would elect to attend the concert after having lost money would also elect to attend after having lost a ticket, and vice versa.
  
 Obviously we are interested in the same sort of behavioral psychology question as in the earlier anchor experiment on guessing populations:
  

@@ -37,7 +37,7 @@ convertRMarkdown <- function(dir=getwd(), images.dir=dir,
                                         content[statusLine] <- 'status: publish'
                                         content[publishedLine] <- 'published: true'
                                         outFile <- paste(substr(f, 1, (nchar(f)-(nchar(in_ext)))), out_ext, sep='')
-                                        render_markdown(strict=TRUE)
+                                        render_markdown(strict=FALSE)
                                         opts_knit$set(out.format='markdown')
                                         opts_knit$set(fig.path="images/")
                                         opts_knit$set(base.dir=images.dir)
