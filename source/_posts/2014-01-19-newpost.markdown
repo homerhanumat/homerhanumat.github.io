@@ -45,16 +45,12 @@ Try out this stuff:
  
  
 
-    ## Error: object 'srs.income' not found
-
- 
-
 
  
 
     srs.income <- popsamp(50, imagpop)
     mean(~income, data = srs.income)
 
-    ## Error: object 'srs.income' not found
+    ## [1] 40888
 
  
