@@ -4,7 +4,7 @@ title: "RMD Template"
 date: 2014-02-01 11:43:14 -0500
 comments: true
 categories:
-published: true
+published: false
 status: publish
 ---
  
