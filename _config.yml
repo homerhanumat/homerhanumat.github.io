@@ -34,7 +34,7 @@ plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 gems: [ 'jekyll-pandoc-multiple-formats' ]
-markdown: pandoc
+markdown: kramdown
 pandoc:
     skip: false
     flags: '--smart --mathjax="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --standalone --toc'
