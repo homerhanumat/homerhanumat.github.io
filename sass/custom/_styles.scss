@@ -2,10 +2,10 @@
 // Add styles here to make changes without digging in too much
 
 #TOC:before {
-  content: "In This Post";
+  content: "In this Post";
   font-weight: bold;
 }
-ul#TOC {
+#TOC ul {
   list-style: none;
   float: right;
   @include shadow-box;
