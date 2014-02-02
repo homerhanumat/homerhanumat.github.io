@@ -8,8 +8,7 @@ pulished:  false
 status:  process
 ---
 
-* replace by toc
-{:toc}
+{ :toc }
 
 ## Preliminaries
 
