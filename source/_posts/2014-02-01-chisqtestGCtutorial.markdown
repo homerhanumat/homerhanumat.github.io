@@ -8,9 +8,9 @@ pulished:  false
 status: publish
 ---
  
-{ :toc }
  
-## Preliminaries
+ 
+## Preliminaries {#toc}
  
 You use the $\chi^2$-test when you are addressing the inferential aspect of a research question about the relationship between two factor variables.  That is, you want to know whether any relationship between the two variables that you might have observed in your data is real or could reasonably be explained as chance variation in the process that resulted in the data.
  
