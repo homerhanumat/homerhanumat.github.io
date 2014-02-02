@@ -1,11 +1,11 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-#markdown-toc:before {
-  content: "Table of Contents";
+#TOC:before {
+  content: "In This Post";
   font-weight: bold;
 }
-ul#markdown-toc {
+ul#TOC {
   list-style: none;
   float: right;
   @include shadow-box;
