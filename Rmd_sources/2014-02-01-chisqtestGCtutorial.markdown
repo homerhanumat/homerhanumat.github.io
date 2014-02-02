@@ -8,10 +8,9 @@ pulished:  false
 status: publish
 ---
  
-* list element with functor item
 {:toc}
  
-# Preliminaries
+## Preliminaries
  
 You use the $\chi^2$-test when you are addressing the inferential aspect of a research question about the relationship between two factor variables.  That is, you want to know whether any relationship between the two variables that you might have observed in your data is real or could reasonably be explained as chance variation in the process that resulted in the data.
  
@@ -22,7 +21,7 @@ The function (and some of the data) that we will use comes from the `tigerstats`
 
  
  
-# Formula-Data Input
+## Formula-Data Input
  
 When your data are in raw form, straight from a data frame, you can perform the test using "formula-data input".  For example, in the `mat111survey` data, we might wonder whether sex and seating preference are related, in the population from which the sample was (allegedly randomly) drawn.  The function call and the output are as follows:
  
@@ -56,7 +55,7 @@ When your data are in raw form, straight from a data frame, you can perform the 
 
  
  
-# Two-Way Table Input
+## Two-Way Table Input
  
 Sometimes you already have a two-way table on hand:
  
@@ -77,7 +76,7 @@ In that case you can save yourself some typing by entering the table in place of
 
  
  
-# Constructing a Two-Way table From Summary Data
+## Constructing a Two-Way table From Summary Data
  
 Remember:  if you are given summary data, only, then you can construct a nice two-way table and enter it into `chisquare.testGC()`.  Suppose that you want this two-way table on :
  
@@ -110,7 +109,7 @@ Then you can enter `MySexSeat` into the function:
 
  
  
-# Simulation
+## Simulation
  
 When the Null's expected counts are low, `chisq.testGC()` delivers a warning and suggest the use of simulation to compute the $P$-value.  You do this by way of the argument `simulate.p.value`, and you have three options:
  
@@ -118,7 +117,7 @@ When the Null's expected counts are low, `chisq.testGC()` delivers a warning and
 * `simulate.p.value = "random"`
 * `simulate.p.value = "TRUE"`
  
-## Explanatory Tallies Fixed
+### Explanatory Tallies Fixed
  
 Suppose that the objects under study are not a random sample from some larger population, and that the way chance comes into the production of the data is through random variation in all of the other factors---besides the explanatory variable--- that might be associated with the response variable.  Then since the items being observed are fixed, the tally of values for the explanatory variable are fixed.  The response values for these items are the product of chance, but only through random variation in those other factors.
  
@@ -164,7 +163,7 @@ In such a case you might want to resample under the restriction that in all of y
 You can set `B`, the number of resamples, as you wish, but it should be at least a few thousand.  Of course the $P$-value, having been determined by random resampling, will vary from one run of the function to another.
  
  
-## Explanatory Tallies Random
+### Explanatory Tallies Random
  
 In the `m111survey` study on sex and seating preference, the subjects are a random sample from a larger population.  In that case the tallies for both the explanatory and the response variables depend upon chance. If you simulate in such a case, then you set `simulate.p.value` to "random":
  
@@ -200,7 +199,7 @@ In the `m111survey` study on sex and seating preference, the subjects are a rand
  
  
  
-## Both Tallies Fixed
+### Both Tallies Fixed
  
 If you want to resample in such a way that the tallies for BOTH the explanatory and response variables stay exactly the same as they were in the actual data, then you set `simulate.p.value` to "TRUE".  This invokes R's standard method for resampling:
  
@@ -236,7 +235,7 @@ If you want to resample in such a way that the tallies for BOTH the explanatory 
  
 It's not easy to understand why R would adopt such a method, but it does have a long and honored history.  If you are ever in doubt about how to simulate, just use this third option.
  
-# Graphs of the P-Value
+## Graphs of the P-Value
  
 You can get a graph of the $P$-value in the plot window by setting the argument `graph` to TRUE.  When you did not simulate, the graph shows a density curve for the $\chi^2$ random variable with the relevant degrees of freedom.  When you simulate, the graph is a histogram of the resampled $\chi^2$-statistics.
  
