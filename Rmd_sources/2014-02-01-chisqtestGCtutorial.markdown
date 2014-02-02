@@ -8,9 +8,10 @@ pulished:  false
 status: publish
 ---
  
+* will be replaced by TOB
+{:toc}
  
- 
-## Preliminaries {#toc}
+## Preliminaries
  
 You use the $\chi^2$-test when you are addressing the inferential aspect of a research question about the relationship between two factor variables.  That is, you want to know whether any relationship between the two variables that you might have observed in your data is real or could reasonably be explained as chance variation in the process that resulted in the data.
  
@@ -76,7 +77,7 @@ In that case you can save yourself some typing by entering the table in place of
 
  
  
-## Constructing a Two-Way table From Summary Data
+## A Table From Summary Data
  
 Remember:  if you are given summary data, only, then you can construct a nice two-way table and enter it into `chisquare.testGC()`.  Suppose that you want this two-way table on :
  

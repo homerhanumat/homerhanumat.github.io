@@ -35,11 +35,6 @@ code_dir: downloads/code
 category_dir: blog/categories
 gems: [ 'kramdown' ]
 markdown: kramdown
-kramdown:
-    - auto-id
-pandoc:
-    skip: false
-    flags: '--smart --mathjax="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --standalone --toc'
 rdiscount:
   extensions:
     - autolink
