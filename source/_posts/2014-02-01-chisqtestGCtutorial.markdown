@@ -79,7 +79,7 @@ In that case you can save yourself some typing by entering the table in place of
  
 ## A Table From Summary Data
  
-Remember:  if you are given summary data, only, then you can construct a nice two-way table and enter it into `chisquare.testGC()`.  Suppose that you want this two-way table on :
+Remember:  if you are given summary data, only, then you can construct a nice two-way table and enter it into `chisquare.testGC()`.  Suppose that you want this two-way table:
  
 |   |Front|Middle|Back|
 |:---------|:----------:|:----------:|:-----------:|
