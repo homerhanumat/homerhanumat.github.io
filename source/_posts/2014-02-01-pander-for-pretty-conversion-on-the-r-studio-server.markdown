@@ -3,7 +3,7 @@ layout: post
 title: "Pander/Pandoc for Pretty Conversion on the R Studio Server"
 date: 2014-02-01 11:42:14 -0500
 comments: true
-categories: [Tech Note]
+categories: [Tech Note, R]
 ---
 
 Eventually we get around to teaching our students to turn in Homework assignments as R Markdown documents, and towards the end of the semester many of them will do a data analysis project, complete with a report generated as an HTML file.
