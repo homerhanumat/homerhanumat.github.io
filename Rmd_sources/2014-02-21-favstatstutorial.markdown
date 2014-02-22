@@ -13,7 +13,7 @@ status: publish
  
 ## Preliminaries
  
-`favstats()` comes form the `mosaic` package and we will use some data from the `tigerstats` package, so make sure that both are loaded:
+`favstats()` comes from the `mosaic` package and we will use some data from the `tigerstats` package, so make sure that both are loaded:
  
 
     require(mosaic)
@@ -93,7 +93,7 @@ For example we might want to know if the fastest speed one drives might be relat
  
 In formula-data input for `favstats()` the formula always follows the format:
  
-$$numerical \approx factor.$$
+$$numerical \sim factor.$$
  
 So we run the following command:
  
