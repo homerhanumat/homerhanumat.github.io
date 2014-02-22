@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "barchartGC() Tutorial"
-date: 2014-02-21 21:00:00
+date: 2014-02-21 20:00:00
 comments: true
 categories: [Student-Focused Tutorials]
 pulished:  false
@@ -60,7 +60,8 @@ Remember that you can also learn about the types of each variable in the data fr
 To look see a bar chart for the tallies of the factor variable **seat**:
  
 
-    barchartGC(~seat, data = m111survey, type = "frequency", main = "Barchart of Seating Preference")
+    barchartGC(~seat,data=m111survey,type="frequency",
+               main="Barchart of Seating Preference")
 
 ![plot of chunk barchartseatfreq](/images/figure/barchartseatfreq.png) 
 
@@ -68,7 +69,8 @@ To look see a bar chart for the tallies of the factor variable **seat**:
 In order to get the actual distribution of **seat**, you want percents rather than counts:
  
 
-    barchartGC(~seat, data = m111survey, type = "percent", main = "Barchart of Seating Preference")
+    barchartGC(~seat,data=m111survey,type="percent",
+               main="Barchart of Seating Preference")
 
 ![plot of chunk barchartseatperc](/images/figure/barchartseatperc.png) 
 
@@ -86,7 +88,8 @@ If you have a table of the counts for a variable, then you can enter it directly
  
 Then you can just enter the table:
 
-    barchartGC(Seat, type = "percent", main = "Barchart of Seating Preference")
+    barchartGC(Seat,type="percent",
+               main="Barchart of Seating Preference")
 
 ![plot of chunk barchartseattab](/images/figure/barchartseattab.png) 
 
@@ -94,10 +97,12 @@ Then you can just enter the table:
  
 ## Two Factor Variables
  
-You can also use `barchartGC()` to study the relationship between two factor variables.  For example, if you want to see whether males and females differ in their seating preferences, then you might try formula-data inoput as follows:
+You can also use `barchartGC()` to study the relationship between two factor variables.  For example, if you want to see whether males and females differ in their seating preferences, then you might try formula-data input as follows:
  
 
-    barchartGC(~sex + seat, data = m111survey, type = "percent", main = "Sex and Seating Preference at Georgetown")
+    barchartGC(~sex+seat,data=m111survey,
+               type="percent",
+               main="Sex and Seating Preference at Georgetown")
 
 ![plot of chunk barchartsexseat](/images/figure/barchartsexseat.png) 
 
@@ -117,7 +122,8 @@ Again, if you happen to have already made a two-way table, then you can just ent
 Here is the bar chart from the two-way table:
  
 
-    barchartGC(SexSeat, type = "percent", main = "Sex and Seating Preference at Georgetown")
+    barchartGC(SexSeat,type="percent",
+               main="Sex and Seating Preference at Georgetown")
 
 ![plot of chunk barchartsexseattab](/images/figure/barchartsexseattab.png) 
 
@@ -127,7 +133,8 @@ Here is the bar chart from the two-way table:
 Bar charts are for factor variables, not for numerical variables.  Look what happens when you ask for a bar chart of **fastest**:
  
 
-    barchartGC(~fastest, data = m111survey, main = "Fastest Speed Ever Driven")
+    barchartGC(~fastest,data=m111survey,
+               main="Fastest Speed Ever Driven")
 
 ![plot of chunk barchartfastest](/images/figure/barchartfastest.png) 
 

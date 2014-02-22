@@ -45,14 +45,14 @@ str(m111survey)
 
 To look see a bar chart for the tallies of the factor variable **seat**:
 
-```{r barchartseatfreq}
+```{r barchartseatfreq,tidy=FALSE}
 barchartGC(~seat,data=m111survey,type="frequency",
            main="Barchart of Seating Preference")
 ```
 
 In order to get the actual distribution of **seat**, you want percents rather than counts:
 
-```{r barchartseatperc}
+```{r barchartseatperc,tidy=FALSE}
 barchartGC(~seat,data=m111survey,type="percent",
            main="Barchart of Seating Preference")
 ```
@@ -65,7 +65,7 @@ Seat
 ```
 
 Then you can just enter the table:
-```{r barchartseattab}
+```{r barchartseattab, tidy=FALSE}
 barchartGC(Seat,type="percent",
            main="Barchart of Seating Preference")
 ```
@@ -73,9 +73,9 @@ barchartGC(Seat,type="percent",
 
 ## Two Factor Variables
 
-You can also use `barchartGC()` to study the relationship between two factor variables.  For example, if you want to see whether males and females differ in their seating preferences, then you might try formula-data inoput as follows:
+You can also use `barchartGC()` to study the relationship between two factor variables.  For example, if you want to see whether males and females differ in their seating preferences, then you might try formula-data input as follows:
 
-```{r barchartsexseat}
+```{r barchartsexseat, tidy=FALSE}
 barchartGC(~sex+seat,data=m111survey,
            type="percent",
            main="Sex and Seating Preference at Georgetown")
@@ -90,7 +90,7 @@ SexSeat
 
 Here is the bar chart from the two-way table:
 
-```{r barchartsexseattab}
+```{r barchartsexseattab, tidy=FALSE}
 barchartGC(SexSeat,type="percent",
            main="Sex and Seating Preference at Georgetown")
 ```
@@ -99,7 +99,7 @@ barchartGC(SexSeat,type="percent",
 
 Bar charts are for factor variables, not for numerical variables.  Look what happens when you ask for a bar chart of **fastest**:
 
-```{r barchartfastest}
+```{r barchartfastest,tidy=FALSE}
 barchartGC(~fastest,data=m111survey,
            main="Fastest Speed Ever Driven")
 ```
