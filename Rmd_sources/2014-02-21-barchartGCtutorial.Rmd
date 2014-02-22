@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "barchartGC() Tutorial"
-date: 2014-02-21 20:00:00
+date: 2014-02-21 21:00:00
 comments: true
 categories: [Student-Focused Tutorials]
 pulished:  false
@@ -10,6 +10,11 @@ status:  process
 
 * will be replaced by TOC
 {:toc}
+
+```{r include=FALSE}
+opts_chunk$set(tidy=FALSE,fig.width=3.5,fig.height=3.5)
+```
+
 
 ## Preliminaries
 
@@ -78,7 +83,7 @@ You can also use `barchartGC()` to study the relationship between two factor var
 ```{r barchartsexseat, tidy=FALSE}
 barchartGC(~sex+seat,data=m111survey,
            type="percent",
-           main="Sex and Seating Preference at Georgetown")
+           main="Sex and Seating Preference\nat Georgetown")
 ```
 
 Again, if you happen to have already made a two-way table, then you can just enter it:
@@ -92,14 +97,14 @@ Here is the bar chart from the two-way table:
 
 ```{r barchartsexseattab, tidy=FALSE}
 barchartGC(SexSeat,type="percent",
-           main="Sex and Seating Preference at Georgetown")
+           main="Sex and Seating Preference\nat Georgetown")
 ```
 
 ## Warning
 
 Bar charts are for factor variables, not for numerical variables.  Look what happens when you ask for a bar chart of **fastest**:
 
-```{r barchartfastest,tidy=FALSE}
+```{r barchartfastest,tidy=FALSE,fig.width=7,fig.height=5}
 barchartGC(~fastest,data=m111survey,
            main="Fastest Speed Ever Driven")
 ```

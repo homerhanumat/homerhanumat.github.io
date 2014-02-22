@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "barchartGC() Tutorial"
-date: 2014-02-21 20:00:00
+date: 2014-02-21 21:00:00
 comments: true
 categories: [Student-Focused Tutorials]
 pulished:  false
@@ -10,6 +10,10 @@ status: publish
  
 * will be replaced by TOC
 {:toc}
+ 
+
+
+ 
  
 ## Preliminaries
  
@@ -23,7 +27,7 @@ status: publish
  
 
     require(devtools)
-    install_github(repo = "homerhanumat/tigerstats")
+    install_github(repo="homerhanumat/tigerstats")
 
  
 In this tutorial we will work with the `m111survey` data frame from `tigerstats` package.  If you are not yet familiar with this data, then run:
@@ -78,7 +82,7 @@ In order to get the actual distribution of **seat**, you want percents rather th
 If you have a table of the counts for a variable, then you can enter it directly.  For example, suppose you have already made:
  
 
-    Seat <- xtabs(~seat, data = m111survey)
+    Seat <- xtabs(~seat,data=m111survey)
     Seat
 
     ## seat
@@ -102,7 +106,7 @@ You can also use `barchartGC()` to study the relationship between two factor var
 
     barchartGC(~sex+seat,data=m111survey,
                type="percent",
-               main="Sex and Seating Preference at Georgetown")
+               main="Sex and Seating Preference\nat Georgetown")
 
 ![plot of chunk barchartsexseat](/images/figure/barchartsexseat.png) 
 
@@ -110,7 +114,7 @@ You can also use `barchartGC()` to study the relationship between two factor var
 Again, if you happen to have already made a two-way table, then you can just enter it:
  
 
-    SexSeat <- xtabs(~sex + seat, data = m111survey)
+    SexSeat <- xtabs(~sex+seat,data=m111survey)
     SexSeat
 
     ##         seat
@@ -123,7 +127,7 @@ Here is the bar chart from the two-way table:
  
 
     barchartGC(SexSeat,type="percent",
-               main="Sex and Seating Preference at Georgetown")
+               main="Sex and Seating Preference\nat Georgetown")
 
 ![plot of chunk barchartsexseattab](/images/figure/barchartsexseattab.png) 
 
