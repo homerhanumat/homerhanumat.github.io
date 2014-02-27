@@ -79,7 +79,7 @@ When we want to go "above" a given number, `pbinomGC()` will *not* include that 
  
 would give us the chance of $X$ being at least 11, which is not what we want.
  
-However, since $X$ can only take on whole number values, $X \geq 10$ means exactly the same thing as $X > 9$, so what we really should ask for is:
+However, since $X$ can only take on whole number values, $X \geq 10$ means exactly the same thing as $X > 9$, what we really should ask for is:
  
 
     pbinomGC(bound=9,region="above",
@@ -90,7 +90,7 @@ However, since $X$ can only take on whole number values, $X \geq 10$ means exact
     ## [1] 0.04796
 
  
-The shaded area starts at 10, just like we want.
+The shaded area starts at 10, as desired.
  
 It's a good idea to keep asking for a graph along with your output, so you can check that R is giving you exactly the probability that you need.
  
@@ -98,7 +98,7 @@ It's a good idea to keep asking for a graph along with your output, so you can c
  
 For this case we also have to be careful.
  
-For the same random variable $X \sim binom(20,0.3)$, suppose we want the probability of at less than 6 successes, i.e.:
+For the same random variable $X \sim binom(20,0.3)$, suppose we want the probability of less than 6 successes, i.e.:
  
 $$P(X < 6).$$
  
@@ -157,7 +157,7 @@ For example, for the same random variable $X \sim binom(20,0.3)$, suppose we wan
  
 $$P(6 \leq X \leq 6),$$
  
-so we can ask for:
+so you can ask for:
  
 
     pbinomGC(bound=c(6,6),region="between",
