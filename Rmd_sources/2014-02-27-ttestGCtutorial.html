@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Preliminaries</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<ul>
+<li>will be replaced by TOB
+{:toc}</li>
+</ul>
+
+<h2>Preliminaries</h2>
+
+<p>You use <code>ttestGC()</code> for inferential procedures regarding:</p>
+
+<ul>
+<li>one population mean \( \mu \);</li>
+<li>the difference of two population means, \( \mu_1 - \mu_2 \);</li>
+<li>the mean \( \mu_d \) of paired differences in a population.</li>
+</ul>
+
+<p>The function comes from the <code>tigerstats</code> package, so make sure that <code>tigerstats</code> is loaded:</p>
+
+<pre><code class="r">require(tigerstats)
+</code></pre>
+
+<p><strong>Note:</strong>  If you are not working with the R Studio server hosted by Georgetown College, then you will need to install <code>tigerstats</code> on your own machine.  You can get the current version from <a href="http://github.com">Github</a> by first installing the <code>devtools</code> package from the CRAN repository, and then running the following commands in a fresh R session:</p>
+
+<pre><code class="r">require(devtools)
+install_github(repo=&quot;homerhanumat/tigerstats&quot;)
+</code></pre>
+
+<h2>One Mean, From Data Frame (Read This!!)</h2>
+
+<p>Read this section carefully.  It talks about:</p>
+
+<ul>
+<li>levels of confidence,</li>
+<li>types of Alternative Hypothesis,</li>
+<li>graphs of the P-value, and</li>
+<li>an option to limit output to the console</li>
+</ul>
+
+<p>in ways that apply to all uses of <code>ttestGC()</code>.</p>
+
+<h3>Confidence Interval Only</h3>
+
+<p>In the <code>m111survey</code> data from the <code>tigerstats</code> package, suppose you want a 95%-confidence interval for:</p>
+
+<blockquote>
+<p>\( \mu = \) the mean fastest speed ever driven, for all GC students.</p>
+</blockquote>
+
+<p>Use the function:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           100.959833          110.842984
+</code></pre>
+
+<p>To get any other level of confidence, you need to use the <code>conf.level</code> argument, indicating your desired level of confidence in decimal (not percentage) form.</p>
+
+<p>For example, for a 90%-confidence interval for \( \mu \), use</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,conf.level=0.90)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 90% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           101.771329          110.031488
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you want a test of significance as well as the confidence interval, then</p>
+
+<ul>
+<li>use the <code>mu</code> argument to set what the Null Hypothesis thinks that the value of \( \mu \) is;</li>
+<li>use the <code>alternative</code> argument to specify the Alternative Hypothesis.</li>
+</ul>
+
+<p>For example, if the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  \mu = 100 \)</p>
+
+<p>\( H_a: \mu > 100 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100,alternative=&quot;greater&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           101.771329          Inf                  
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 100 
+##  H_a:  mu &gt; 100 
+## 
+##  Test Statistic:     t = 2.382 
+##  Degrees of Freedom:   70 
+##  P-value:        P = 0.009974
+</code></pre>
+
+<p>If the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  \mu = 100 \)</p>
+
+<p>\( H_a: \mu < 100 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100,alternative=&quot;less&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           -Inf                110.031488           
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 100 
+##  H_a:  mu &lt; 100 
+## 
+##  Test Statistic:     t = 2.382 
+##  Degrees of Freedom:   70 
+##  P-value:        P = 0.99
+</code></pre>
+
+<p>If the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  \mu = 100 \)</p>
+
+<p>\( H_a: \mu \neq 100 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100,
+        alternative=&quot;two.sided&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           100.959833          110.842984           
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 100 
+##  H_a:  mu != 100 
+## 
+##  Test Statistic:     t = 2.382 
+##  Degrees of Freedom:   70 
+##  P-value:        P = 0.01995
+</code></pre>
+
+<p>But note that the default value of <code>alternative</code> is &ldquo;two.sided&rdquo;, so if you want you could just leave it out and still get a two-sided test:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100)
+</code></pre>
+
+<h3>Graph of the P-Value</h3>
+
+<p>Anytime you want, you can get a graph of the \( P \)-value for your test, simply by setting the argument <code>graph</code> to <code>TRUE</code>:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100,
+        alternative=&quot;two.sided&quot;,graph=TRUE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  variable  mean    sd  n
+##   fastest 105.9 20.88 71
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   105.9 
+## SE(x.bar):    2.478 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           100.959833          110.842984           
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 100 
+##  H_a:  mu != 100 
+## 
+##  Test Statistic:     t = 2.382 
+##  Degrees of Freedom:   70 
+##  P-value:        P = 0.01995
+</code></pre>
+
+<p><img src="data:image/png;base64,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+Lu3bydsRb4DsezavwOeDjVqCYJ+9o5oLnN07Yctp/AQ8AX2pRiI5Yf0m4Mt1ToT+wJ8DCz19q3Blkhd7f37S+DzsAOXFtPPXiRLPdDN93o/7AuQbx2c47HFuT7FckqmneVt34ItxdAl6EAlcPrZi+RRg61DsRA4ssix7YHrgGe81wOw9qWRQDvgWmByOGFKCPSzl8T6HrbY1grgVG9bF+ARLKP4sDzv24XGC011wZZybQtcCNzu29cWu43aJrCoJSz62TugNsTouBHo5D3+gP0CPwm8D+yNfTFyGQ+c73vdHrtF2oSlWqr17avxXkdl+VnJTT97kSzHY8Mu+mU90r/kE7G1rIcBnwBfxdaiuRt4wDtmMFbjPAirPfwW9TTGgX72IlmuwRrEsx8N3v7VwBHev7+NDctYgX0hGnznORrrhVyJtSH1DjtwaTH97EVEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREpAp8C5hKZvH1N4AjnUYkVaHGdQAizVADPA/cDHQC9scWbxcRSaTdgPnAPLQAuwSkznUAIs30LjALWAYschyLiIhTo4HpwEJgT8exiIg40xZ4H9gX+CbwL6CV04hERBy5FPij9+9WwEtYz7OIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIjE3/8Bl3jZ7VVuzb8AAAAASUVORK5CYII=" alt="plot of chunk ttesttutonemean2sided"/> </p>
+
+<h3>Limiting Output</h3>
+
+<p>Sometimes you don&#39;t need R to print so much information to the console.  If you want only the basics (such as a confidence interval, the test statistic and \( P \)-value), then set the <code>verbose</code> argument to <code>FALSE</code>:</p>
+
+<pre><code class="r">ttestGC(~fastest,data=m111survey,mu=100,
+        alternative=&quot;two.sided&quot;,verbose=FALSE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           100.959833          110.842984           
+## 
+##  Test Statistic:     t = 2.382 
+##  Degrees of Freedom:   70 
+##  P-value:        P = 0.01995
+</code></pre>
+
+<h2>One Mean, From Summary Data</h2>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Say that you have taken a simple random sample from some large population, and:</p>
+
+<ul>
+<li>the sample mean is \( \bar{x}=30 \),</li>
+<li>the sample standard deviation is \( s=4 \),</li>
+<li>the sample size was \( n=40 \).</li>
+</ul>
+
+<p>You don&#39;t have the raw data present in a data frame, but you have enough summary data to use <code>ttestGC()</code>.  You just have to set some new arguments:</p>
+
+<ul>
+<li>set <code>mean</code> to the sample mean;</li>
+<li>set <code>sd</code> to the sample standard deviation;</li>
+<li>set <code>n</code> to the sample size.</li>
+</ul>
+
+<p>So if you only want a 95%-confidence interval for \( \mu \). use:</p>
+
+<pre><code class="r">ttestGC(mean=30,sd=4,n=40)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  mean sd  n
+##    30  4 40
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   30 
+## SE(x.bar):    0.6325 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           28.720738           31.279262
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you also want to do a test of significance, again specify <code>mu</code> and <code>alternative</code>.  For example, to test the hypotheses</p>
+
+<blockquote>
+<p>\( H_0:  \mu = 32 \)</p>
+
+<p>\( H_a: \mu < 32 \)</p>
+</blockquote>
+
+<p>use:</p>
+
+<pre><code class="r">ttestGC(mean=30,sd=4,n=40,
+        mu=32,alternative=&quot;less&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##  mean sd  n
+##    30  4 40
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   30 
+## SE(x.bar):    0.6325 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           -Inf                31.065609            
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 32 
+##  H_a:  mu &lt; 32 
+## 
+##  Test Statistic:     t = -3.162 
+##  Degrees of Freedom:   39 
+##  P-value:        P = 0.001514
+</code></pre>
+
+<h2>Difference of Two Means, Data Frame</h2>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Suppose</p>
+
+<blockquote>
+<p>\( \mu_1 = \) mean fastest speed ever driven, by all GC females</p>
+
+<p>\( \mu_2 = \) mean fastest speed ever driven, by all GC males</p>
+</blockquote>
+
+<p>If you desire, say, an 85%-confidence interval for \( \mu_1 - \mu_2 \), then use:</p>
+
+<pre><code class="r">ttestGC(fastest~sex,data=m111survey,
+        conf.level=0.85)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##   fastest grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##   group  mean    sd  n
+##  female 100.0 17.61 40
+##    male 113.5 22.57 31
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  -13.4 
+## SE(mu1.hat - mu2.hat):    4.918 
+## 
+## 85% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           -20.579953          -6.223273
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you want a 95%-confidence interval for \( \mu_1 - \mu_2 \) and you would like to test the hypotheses:</p>
+
+<blockquote>
+<p>\( H_0:  \mu_1 - \mu_2 = 0 \)</p>
+
+<p>\( H_a: \mu_1 - \mu_2 \neq 0 \)</p>
+</blockquote>
+
+<p>then use:</p>
+
+<pre><code class="r">ttestGC(fastest~sex,data=m111survey,
+      mu=0)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##   fastest grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##   group  mean    sd  n
+##  female 100.0 17.61 40
+##    male 113.5 22.57 31
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  -13.4 
+## SE(mu1.hat - mu2.hat):    4.918 
+## 
+## 95% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           -23.254640          -3.548586            
+## 
+## Test of Significance:
+## 
+##  H_0:  mu1-mu2 = 0 
+##  H_a:  mu1-mu2 != 0 
+## 
+##  Test Statistic:     t = -2.725 
+##  Degrees of Freedom:   55.49 
+##  P-value:        P = 0.008579
+</code></pre>
+
+<p>Notice that this time:</p>
+
+<ul>
+<li>you specified the Null&#39;s belief about the value of \( \mu_1-\mu_2 \) using the <code>mu</code> argument;</li>
+<li>you did not have to set <code>conf.level</code> to 0.95 (the default value of the argument is 0.95 already);</li>
+<li>you did not have to specify the two-sided alternative (the default value of <code>alternative</code> is already &ldquo;two.sided&rdquo;).</li>
+</ul>
+
+<h3>Order of the Groups</h3>
+
+<p>Suppose that in the previous situation you had defined:</p>
+
+<blockquote>
+<p>\( \mu_1 = \) mean fastest speed ever driven, by all GC males</p>
+
+<p>\( \mu_2 = \) mean fastest speed ever driven, by all GC females</p>
+</blockquote>
+
+<p>Then for you, the first population is all GC males and the second population is all GC females.  In order to guarantee that R abides by your choice, use the argument <code>first</code>:</p>
+
+<pre><code class="r">ttestGC(fastest~sex,data=m111survey,
+      mu=0,first=&quot;male&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##   fastest grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##   group  mean    sd  n
+##    male 113.5 22.57 31
+##  female 100.0 17.61 40
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  13.4 
+## SE(mu1.hat - mu2.hat):    4.918 
+## 
+## 95% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           3.548586            23.254640            
+## 
+## Test of Significance:
+## 
+##  H_0:  mu1-mu2 = 0 
+##  H_a:  mu1-mu2 != 0 
+## 
+##  Test Statistic:     t = 2.725 
+##  Degrees of Freedom:   55.49 
+##  P-value:        P = 0.008579
+</code></pre>
+
+<h2>Difference of Two Means, Summary Data</h2>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Suppose that you have taken two independent samples from two populations (or performed a completely randomized experiment with two treatment groups), and you have the following summary data:</p>
+
+<table><thead>
+<tr>
+<th align="center">Group</th>
+<th align="center">\( \bar{x} \)</th>
+<th align="center">\( s \)</th>
+<th align="center">\( n \)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">group one</td>
+<td align="center">32</td>
+<td align="center">4.2</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="center">group two</td>
+<td align="center">30</td>
+<td align="center">5.1</td>
+<td align="center">42</td>
+</tr>
+</tbody></table>
+
+<p>You need to provide the summary data to the arguments <code>mean</code>, <code>sd</code> and <code>n</code>, as lists using the <code>c()</code> function.  In each list, data from the first group should come first.</p>
+
+<p>For a 95%-confidence interval for \( \mu_1 - \mu_2 \), use:</p>
+
+<pre><code class="r">ttestGC(mean=c(32,30),sd=c(4.2,5.1),n=c(33,42))
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##  Results from summary data.
+## 
+## 
+## Descriptive Results:
+## 
+##    group mean  sd  n
+##  Group 1   32 4.2 33
+##  Group 2   30 5.1 42
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  2 
+## SE(mu1.hat - mu2.hat):    1.074 
+## 
+## 95% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           -0.140898           4.140898
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you want a 90%-confidence interval for \( \mu_1 - \mu_2 \) and you would like to test the hypotheses:</p>
+
+<blockquote>
+<p>\( H_0:  \mu_1 - \mu_2 = 0 \)</p>
+
+<p>\( H_a: \mu_1 - \mu_2 > 0 \)</p>
+</blockquote>
+
+<p>Suppose you also want a graph of the \( P \)-value.  Then use:</p>
+
+<pre><code class="r">ttestGC(mean=c(32,30),sd=c(4.2,5.1),n=c(33,42),
+        mu=0,alternative=&quot;greater&quot;,
+        conf.level=0.90,graph=TRUE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Means mu1-mu2:
+##  (Welch&#39;s Approximation Used for Degrees of Freedom)
+##  Results from summary data.
+## 
+## 
+## Descriptive Results:
+## 
+##    group mean  sd  n
+##  Group 1   32 4.2 33
+##  Group 2   30 5.1 42
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu1-mu2:  2 
+## SE(mu1.hat - mu2.hat):    1.074 
+## 
+## 90% Confidence Interval for mu1-mu2:
+## 
+##           lower.bound         upper.bound          
+##           0.610797            Inf                  
+## 
+## Test of Significance:
+## 
+##  H_0:  mu1-mu2 = 0 
+##  H_a:  mu1-mu2 &gt; 0 
+## 
+##  Test Statistic:     t = 1.862 
+##  Degrees of Freedom:   72.82 
+##  P-value:        P = 0.03333
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk ttesttut2meanssummary"/> </p>
+
+<h2>Mean of Differences</h2>
+
+<h3>Both Variables in the Data Frame</h3>
+
+<h4>Confidence Interval Only</h4>
+
+<p>Suppose that</p>
+
+<blockquote>
+<p>\( \mu_d = \) mean difference (ideal height minus actual height) for all Georgetown College student.</p>
+</blockquote>
+
+<p>Both of the relevant variables&mdash;<strong>ideal_ht</strong> and <strong>height</strong>&mdash;are present in the <code>m111survey</code> data frame.</p>
+
+<p>If you want a 95%-confidence interval for \( \mu_d \), then use:</p>
+
+<pre><code class="r">ttestGC(~ideal_ht - height,data=m111survey)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Means mu-d:
+##   height minus ideal_ht 
+## 
+## 
+## Descriptive Results:
+## 
+##         Difference mean.difference sd.difference  n
+##  ideal_ht - height           1.946         3.206 69
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu-d:     1.946 
+## SE(d.bar):    0.3859 
+## 
+## 95% Confidence Interval for mu-d:
+## 
+##           lower.bound         upper.bound          
+##           1.175528            2.715776
+</code></pre>
+
+<p>Note how the &ldquo;~&rdquo; character signals the presence of a formula.</p>
+
+<h4>Interval and Test</h4>
+
+<p>In order to test:</p>
+
+<blockquote>
+<p>\( H_0:  \mu_d = 0 \)</p>
+
+<p>\( H_a: \mu_d > 0 \)</p>
+</blockquote>
+
+<p>use:</p>
+
+<pre><code class="r">ttestGC(~ideal_ht - height,data=m111survey,
+        mu=0,alternative=&quot;greater&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Means mu-d:
+##   height minus ideal_ht 
+## 
+## 
+## Descriptive Results:
+## 
+##         Difference mean.difference sd.difference  n
+##  ideal_ht - height           1.946         3.206 69
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu-d:     1.946 
+## SE(d.bar):    0.3859 
+## 
+## 95% Confidence Interval for mu-d:
+## 
+##           lower.bound         upper.bound          
+##           1.302075            Inf                  
+## 
+## Test of Significance:
+## 
+##  H_0:  mu-d = 0 
+##  H_a:  mu-d &gt; 0 
+## 
+##  Test Statistic:     t = 5.041 
+##  Degrees of Freedom:   68 
+##  P-value:        P = 1.826e-06
+</code></pre>
+
+<h3>The Difference is in the Data Frame</h3>
+
+<p>Sometimes the difference of the two relevant numerical variables is included in the data frame as another variable:  such is the case for <code>m111survey</code>, where the difference is recorded as the variable <strong>diff.ideal.act.</strong></p>
+
+<p>If you would like to use this difference, then Work just as if you were studying one population mean \( \mu \).</p>
+
+<h4>Confidence Interval Only</h4>
+
+<p>Thus, for a 95%-confidence interval for \( \mu_d \) we could also have done:</p>
+
+<pre><code class="r">ttestGC(~diff.ideal.act.,data=m111survey)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##         variable  mean    sd  n
+##  diff.ideal.act. 1.946 3.206 69
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   1.946 
+## SE(x.bar):    0.3859 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           1.175528            2.715776
+</code></pre>
+
+<h4>Interval and Test</h4>
+
+<p>For a test of</p>
+
+<blockquote>
+<p>\( H_0:  \mu_d = 0 \)</p>
+
+<p>\( H_a: \mu_d > 0 \)</p>
+</blockquote>
+
+<p>we could have done:</p>
+
+<pre><code class="r">ttestGC(~diff.ideal.act.,data=m111survey,
+        mu=0,alternative=&quot;greater&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for One Mean mu:
+## 
+## 
+## Descriptive Results:
+## 
+##         variable  mean    sd  n
+##  diff.ideal.act. 1.946 3.206 69
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of mu:   1.946 
+## SE(x.bar):    0.3859 
+## 
+## 95% Confidence Interval for mu:
+## 
+##           lower.bound         upper.bound          
+##           1.302075            Inf                  
+## 
+## Test of Significance:
+## 
+##  H_0:  mu = 0 
+##  H_a:  mu &gt; 0 
+## 
+##  Test Statistic:     t = 5.041 
+##  Degrees of Freedom:   68 
+##  P-value:        P = 1.826e-06
+</code></pre>
+
+<p>Note that in its statement of hypotheses, R identifies the parameter of interest as \( \mu \) rather than as \( \mu_d \).  It had no way of knowing that <strong>diff.ideal.act</strong> recorded the difference of a pair of measurements.</p>
+
+</body>
+
+</html>
+
