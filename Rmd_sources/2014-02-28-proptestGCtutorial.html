@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Preliminaries</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<ul>
+<li>will be replaced by TOB
+{:toc}</li>
+</ul>
+
+<h2>Preliminaries</h2>
+
+<p>You use <code>proptestGC()</code> for inferential procedures regarding:</p>
+
+<ul>
+<li>one population proportion \( p \);</li>
+<li>the difference of two population proportions, \( p\_1 - p_2 \).</li>
+</ul>
+
+<p>The function comes from the <code>tigerstats</code> package, so make sure that <code>tigerstats</code> is loaded:</p>
+
+<pre><code class="r">require(tigerstats)
+</code></pre>
+
+<p><strong>Note:</strong>  If you are not working with the R Studio server hosted by Georgetown College, then you will need to install <code>tigerstats</code> on your own machine.  You can get the current version from <a href="http://github.com">Github</a> by first installing the <code>devtools</code> package from the CRAN repository, and then running the following commands in a fresh R session:</p>
+
+<pre><code class="r">require(devtools)
+install_github(repo=&quot;homerhanumat/tigerstats&quot;)
+</code></pre>
+
+<h2>One Proportion, From Data Frame (Read This!!)</h2>
+
+<p>In inference procedures regarding one proportion, <code>binomtestGC()</code> is preferred over <code>proptestGC()</code>, especially at smaller sample sizes.  Nevertheless, read this section carefully.  It talks about:</p>
+
+<ul>
+<li>what to count as a &ldquo;success&rdquo;,</li>
+<li>levels of confidence,</li>
+<li>types of Alternative Hypothesis,</li>
+<li>graphs of the P-value, and</li>
+<li>an option to limit output to the console</li>
+</ul>
+
+<p>in ways that apply to all uses of <code>proptestGC()</code>.</p>
+
+<h3>Confidence Interval Only</h3>
+
+<p>In the <code>m111survey</code> data from the <code>tigerstats</code> package, suppose you want a 95%-confidence interval for:</p>
+
+<blockquote>
+<p>\( p = \) the proportion of all Georgetown College students who are female.</p>
+</blockquote>
+
+<p>Use the function:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,
+           success=&quot;female&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.448016            0.678745
+</code></pre>
+
+<p>Note that the <code>success</code> argument is set to &ldquo;female&rdquo; in order to make the function recognize \( p \) as the population proportion of <em>females</em>, rather than the proportion of males (or of some other value of the variable in question).</p>
+
+<p>To get any other level of confidence, you need to use the <code>conf.level</code> argument, indicating your desired level of confidence in decimal (not percentage) form.</p>
+
+<p>For example, for a 90%-confidence interval for \( \mu \), use</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,
+           success=&quot;female&quot;,conf.level=0.90)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 90% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.466564            0.660197
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you want a test of significance as well as the confidence interval, then</p>
+
+<ul>
+<li>use the <code>p</code> argument to set what the Null Hypothesis thinks that the value of \( p \) is;</li>
+<li>use the <code>alternative</code> argument to specify the Alternative Hypothesis.</li>
+</ul>
+
+<p>For example, if the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  p = 0.50 \)</p>
+
+<p>\( H_a: p > 0.50 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+           success=&quot;female&quot;,alternative=&quot;greater&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.466564            1.000000             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.5 
+##  H_a:  p &gt; 0.5 
+## 
+##  Test Statistic:     z = 0.9571 
+##  P-value:        P = 0.1692
+</code></pre>
+
+<p>If the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  p = 0.50 \)</p>
+
+<p>\( H_a: p < 0.50 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+           success=&quot;female&quot;,alternative=&quot;less&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.000000            0.660197             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.5 
+##  H_a:  p &lt; 0.5 
+## 
+##  Test Statistic:     z = 1.196 
+##  P-value:        P = 0.8842
+</code></pre>
+
+<p>If the hypotheses are:</p>
+
+<blockquote>
+<p>\( H_0:  p = 0.50 \)</p>
+
+<p>\( H_a: p \neq 0.50 \)</p>
+</blockquote>
+
+<p>Then use:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+        success=&quot;female&quot;,alternative=&quot;two.sided&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.448016            0.678745             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.5 
+##  H_a:  p != 0.5 
+## 
+##  Test Statistic:     z = 0.9571 
+##  P-value:        P = 0.3385
+</code></pre>
+
+<p>But note that the default value of <code>alternative</code> is &ldquo;two.sided&rdquo;, so if you want you could just leave it out and still get a two-sided test:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+           success=&quot;female&quot;)
+</code></pre>
+
+<h3>Graph of the P-Value</h3>
+
+<p>Anytime you want, you can get a graph of the \( P \)-value for your test, simply by setting the argument <code>graph</code> to <code>TRUE</code>:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+        success=&quot;female&quot;,graph=TRUE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  female  n estimated.prop
+##      40 71         0.5634
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.5634 
+## SE(p.hat):    0.05886 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.448016            0.678745             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.5 
+##  H_a:  p != 0.5 
+## 
+##  Test Statistic:     z = 0.9571 
+##  P-value:        P = 0.3385
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk proptesttutoneprop2sided"/> </p>
+
+<h3>Limiting Output</h3>
+
+<p>Sometimes you don&#39;t need R to print so much information to the console.  If you want only the basics (such as a confidence interval, the test statistic and \( P \)-value), then set the <code>verbose</code> argument to <code>FALSE</code>:</p>
+
+<pre><code class="r">proptestGC(~sex,data=m111survey,p=0.50,
+        success=&quot;female&quot;,verbose=FALSE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Variable under study is sex 
+##  Continuity Correction Applied to Test Statistic
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.448016            0.678745             
+## 
+##  Test Statistic:     z = 0.9571 
+##  P-value:        P = 0.3385
+</code></pre>
+
+<h2>One Proportion, From Summary Data</h2>
+
+<p>Again note that <code>binomtestGC()</code> is preferred in this situation, especially at smaller sample sizes.</p>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Say that you have taken a simple random sample of size \( n=2500 \) from the population of all registered voters in the U.S., and you find that 1325 of them favor the Affordable Care Act.  Suppose that you would like to make a confidence interval for</p>
+
+<blockquote>
+<p>\( p = \) the proportion of all registered voters in the U.S. who support the Act.</p>
+</blockquote>
+
+<p>You don&#39;t have the raw data present in a data frame, but you have enough summary data to use <code>proptestGC()</code>.  You just have to set some new arguments:</p>
+
+<ul>
+<li>set <code>x</code> to 1325, the number of &ldquo;successes&rdquo; you are counting up;</li>
+<li>set <code>n</code> to 2500, the sample size.</li>
+</ul>
+
+<p>So if you only want a 95%-confidence interval for \( p \). use:</p>
+
+<pre><code class="r">proptestGC(x=1325,n=2500)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Results based on Summary Data
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  successes    n estimated.prop
+##       1325 2500           0.53
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.53 
+## SE(p.hat):    0.009982 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.510436            0.549564
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you also want to do a test of significance, again specify <code>p</code> and <code>alternative</code>.  For example, to test the hypotheses</p>
+
+<blockquote>
+<p>\( H_0:  p = 0.50 \)</p>
+
+<p>\( H_a: p < 0.50 \)</p>
+</blockquote>
+
+<p>use:</p>
+
+<pre><code class="r">proptestGC(x=1325,n=2500,
+        p=0.50,,alternative=&quot;less&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for a Single Proportion p:
+##  Results based on Summary Data
+##  Continuity Correction Applied to Test Statistic
+## 
+## 
+## Descriptive Results:
+## 
+##  successes    n estimated.prop
+##       1325 2500           0.53
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p:    0.53 
+## SE(p.hat):    0.009982 
+## 
+## 95% Confidence Interval for p:
+## 
+##           lower.bound         upper.bound          
+##           0.000000            0.546419             
+## 
+## Test of Significance:
+## 
+##  H_0:  p = 0.5 
+##  H_a:  p &lt; 0.5 
+## 
+##  Test Statistic:     z = 3.025 
+##  P-value:        P = 0.9988
+</code></pre>
+
+<h2>Difference of Two Proportions, Data Frame</h2>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Suppose</p>
+
+<blockquote>
+<p>\( p_1 = \) proportion of all GC females who believe they get enough sleep</p>
+
+<p>\( p_2 = \) proportion of all GC males who believe they get enough sleep</p>
+</blockquote>
+
+<p>If you desire, say, an 85%-confidence interval for \( p\_1 - p_2 \), then use:</p>
+
+<pre><code class="r">proptestGC(~sex+enough_Sleep,data=m111survey,
+        success=&quot;yes&quot;,conf.level=0.85)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Proportions p1-p2:
+##   enough_Sleep grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##        yes  n estimated.prop
+## female  14 40         0.3500
+## male    11 31         0.3548
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p1-p2:    -0.004839 
+## SE(p1.hat - p2.hat):  0.1143 
+## 
+## 85% Confidence Interval for p1-p2:
+## 
+##           lower.bound         upper.bound          
+##           -0.169426           0.159749
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>If you want a 95%-confidence interval for \( p\_1 - p_2 \) and you would like to test the hypotheses:</p>
+
+<blockquote>
+<p>\( H\_0:  p\_1 - p_2 = 0 \)</p>
+
+<p>\( H_a: p\_1 - p_2 \neq 0 \)</p>
+</blockquote>
+
+<p>then use:</p>
+
+<pre><code class="r">proptestGC(~sex+enough_Sleep,data=m111survey,
+      success=&quot;yes&quot;,p=0)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Proportions p1-p2:
+##   enough_Sleep grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##        yes  n estimated.prop
+## female  14 40         0.3500
+## male    11 31         0.3548
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p1-p2:    -0.004839 
+## SE(p1.hat - p2.hat):  0.1143 
+## 
+## 95% Confidence Interval for p1-p2:
+## 
+##           lower.bound         upper.bound          
+##           -0.228929           0.219252             
+## 
+## Test of Significance:
+## 
+##  H_0:  p1-p2 = 0
+##  H_a:  p1-p2 != 0
+## 
+##  Test Statistic:     z = -0.04232 
+##  P-value:        P = 0.9662
+</code></pre>
+
+<p>Notice that this time:</p>
+
+<ul>
+<li>you specified the Null&#39;s belief about the value of \( p_1-p_2 \) using the <code>p</code> argument;</li>
+<li>you did not have to set <code>conf.level</code> to 0.95 (the default value of the argument is 0.95 already);</li>
+<li>you did not have to specify the two-sided alternative (the default value of <code>alternative</code> is already &ldquo;two.sided&rdquo;).</li>
+</ul>
+
+<h3>Order of the Groups</h3>
+
+<p>Suppose that in the previous situation you had defined:</p>
+
+<blockquote>
+<p>\( p_1 = \) proportion of all GC males who believe they get enough sleep</p>
+
+<p>\( p_2 = \) proportion of all GC females who believe they get enough sleep</p>
+</blockquote>
+
+<p>Then for you, the first population is all GC males and the second population is all GC females.  In order to guarantee that R abides by your choice, use the argument <code>first</code>:</p>
+
+<pre><code class="r">proptestGC(~sex+enough_Sleep,data=m111survey,
+      success=&quot;yes&quot;,p=0,first=&quot;male&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Proportions p1-p2:
+##   enough_Sleep grouped by sex 
+## 
+## 
+## Descriptive Results:
+## 
+##        yes  n estimated.prop
+## male    11 31         0.3548
+## female  14 40         0.3500
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p1-p2:    0.004839 
+## SE(p1.hat - p2.hat):  0.1143 
+## 
+## 95% Confidence Interval for p1-p2:
+## 
+##           lower.bound         upper.bound          
+##           -0.219252           0.228929             
+## 
+## Test of Significance:
+## 
+##  H_0:  p1-p2 = 0
+##  H_a:  p1-p2 != 0
+## 
+##  Test Statistic:     z = 0.04232 
+##  P-value:        P = 0.9662
+</code></pre>
+
+<h2>Difference of Two Proportions, Summary Data</h2>
+
+<h3>Confidence Interval Only</h3>
+
+<p>Suppose that you have taken two independent samples from two populations (or performed a completely randomized experiment with two treatment groups), and you have the following summary data:</p>
+
+<table><thead>
+<tr>
+<th align="center">Group</th>
+<th align="center">Success Count</th>
+<th align="center">Sample Size</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">group one</td>
+<td align="center">1325</td>
+<td align="center">2500</td>
+</tr>
+<tr>
+<td align="center">group two</td>
+<td align="center">905</td>
+<td align="center">1800</td>
+</tr>
+</tbody></table>
+
+<p>You need to provide the summary data to the arguments <code>x</code> and <code>n</code> as lists using the <code>c()</code> function.  In each list, data from the first group should come first.</p>
+
+<p>For a 95%-confidence interval for \( p\_1 - p_2 \), use:</p>
+
+<pre><code class="r">proptestGC(x=c(1325,905),n=c(2500,1800))
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Proportions p1-p2:
+##  Results taken from summary data.
+## 
+## 
+## Descriptive Results:
+## 
+##         successes    n estimated.prop
+## Group 1      1325 2500         0.5300
+## Group 2       905 1800         0.5028
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p1-p2:    0.02722 
+## SE(p1.hat - p2.hat):  0.01544 
+## 
+## 95% Confidence Interval for p1-p2:
+## 
+##           lower.bound         upper.bound          
+##           -0.003048           0.057492
+</code></pre>
+
+<h3>Interval and Test</h3>
+
+<p>Suppose that you want a 90%-confidence interval for \( p\_1 - p_2 \) and that you would like to test the hypotheses:</p>
+
+<blockquote>
+<p>\( H\_0:  p\_1 - p_2 = 0 \)</p>
+
+<p>\( H_a: p\_1 - p_2 > 0 \)</p>
+</blockquote>
+
+<p>Suppose also that you want a graph of the \( P \)-value.  Then use:</p>
+
+<pre><code class="r">proptestGC(x=c(1325,905),n=c(2500,1800),
+           p=0,conf.level=0.90,graph=TRUE)
+</code></pre>
+
+<pre><code>## 
+## 
+## Inferential Procedures for the Difference of Two Proportions p1-p2:
+##  Results taken from summary data.
+## 
+## 
+## Descriptive Results:
+## 
+##         successes    n estimated.prop
+## Group 1      1325 2500         0.5300
+## Group 2       905 1800         0.5028
+## 
+## 
+## Inferential Results:
+## 
+## Estimate of p1-p2:    0.02722 
+## SE(p1.hat - p2.hat):  0.01544 
+## 
+## 90% Confidence Interval for p1-p2:
+## 
+##           lower.bound         upper.bound          
+##           0.001819            0.052626             
+## 
+## Test of Significance:
+## 
+##  H_0:  p1-p2 = 0
+##  H_a:  p1-p2 != 0
+## 
+##  Test Statistic:     z = 1.763 
+##  P-value:        P = 0.07797
+</code></pre>
+
+<p><img src="data:image/png;base64,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tfD22xRbAbAaOyvezrutBdDM21bdvlPnJo2bbkX7Tp3p2LU7rdq1p2vNtnSt6U2n7j22OCmyevlneTyt8Kxfvaqkx5P6WfXZspKPIOjSoxddevRid2+Jic2bNrVf8vGH7Zcu+HDHVZ8tY+WyT1m+dDFrViwnkUiwfOnijdj3dT2wEfjC+/tLbAXNTdhIkY1YAer3WX7l3XY3UNoPfp7icMpyMjCd/EbiT/Dun05b4FHg3iyPvxjYO2Xb19gqdZuAzd5lk7fd/3ujd4mLG4C3XQchW/gO8ekeSmCVhCZAY6wrqLH3fwKrOFRhlZDUmQPXk/17KCIisiXNVBGRihacqbKRZBNVM1VEpGSi0oc4HTt5cinpZ6ospzQDs/+MneXeXIJjudIGe35lfbYwpjqSnLZarloAf8C+65LBGqBrhttaAStKFMfvge4lOpYrxwOHug5C0roaGOo6iCI7ADjFdRCZRKWfzp+pkk4lzFQRkQiIyjjESpqpIiIRFZUCsdxmqohIDEWlQITMM1VEREoiKn2IIiLOqUCsy5+KV842Uf7PMa70+ZNIqYS0M/4cU4mepkRnbHCx+HOeRUREREREREREREREREREREREREREYuEJoF+G207DspKnXkZ6t2/jPX4d8DLQt6iRVg69JyIlNg64HfsyZfrytcGyCvmXUdgqfM2wmRL/Ak4FugC/AZ4tYryVQO+JiCOnATcBn5P5y5fqHmAP7+9hwLskp5A1BXYKM8AKpPdExLHF5PflGwE8EPj/aOARLBflPCxxb4+wg6tQek8iTtluKlsCuAa4JLCtI5ahfC4wCfgMuL/0oVUsvSciBfo5tkDXGuDYlNvyqY2MBp5L2fazlG3NsHRNHQoNUv5H70nERSljttTfjd6lUAdhS0IGLUz5/xuS62RL8ek9ESmCdLWRydj612BNswVAz5T7NAWWAYcBW2NnNJ8rVpAVRu+JiCPpvnwbsD4ogEHAEtInJN0FG+axHhv7Vu5rVZeK3hMREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREakgRwEvYst1VgFzgP2cRiRlId36ryJRlwBeAKYCbYE9sQXfRUQq0gBgEbAQ6OY4FikT1a4DECnQW8B8YAWwxHEsIiJOjQZeBxYDgxzHIiLiTFPgXWAUcCTwT6CR04hERBw5H7jH+7sRMAs78ywiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiLx9/+GYOmifT4IrQAAAABJRU5ErkJggg==" alt="plot of chunk proptesttut2propssummary"/> </p>
+
+</body>
+
+</html>
+
