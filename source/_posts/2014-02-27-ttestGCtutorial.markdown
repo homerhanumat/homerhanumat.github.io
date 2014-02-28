@@ -598,13 +598,13 @@ For a 95%-confidence interval for $\mu\_1 - \mu_2$, use:
  
 ### Interval and Test
  
-If you want a 90%-confidence interval for $\mu_1 - \mu_2$ and you would like to test the hypotheses:
+Suppose that you want a 90%-confidence interval for $\mu\_1 - \mu_2$ and that you would like to test the hypotheses:
  
   >$H\_0:  \mu\_1 - \mu_2 = 0$
   
   >$H_a: \mu\_1 - \mu_2 > 0$
  
-Suppose you also want a graph of the $P$-value.  Then use:
+Suppose also that want a graph of the $P$-value.  Then use:
  
 
     ttestGC(mean=c(32,30),sd=c(4.2,5.1),n=c(33,42),
@@ -822,4 +822,4 @@ we could have done:
 
  
  
-Note that in its statement of hypotheses, R identifies the parameter of interest as $\mu$ rather than as $\mu_d$.  It had no way of knowing that **diff.ideal.act** recorded the difference of a pair of measurements.
+Note that in its statement of hypotheses, R identifies the parameter of interest as $\mu$ rather than as $\mu_d$.  It had no way of knowing that **diff.ideal.act.** recorded the difference of a pair of measurements.
