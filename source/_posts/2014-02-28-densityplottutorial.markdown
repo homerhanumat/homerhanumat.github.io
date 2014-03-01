@@ -38,7 +38,7 @@ then `lattice` will be loaded as well.  If you don't plan to use `tigerstats` bu
  
 ## One Numerical Variable
  
-In the `m11survey` data frame from the `tigerstats` package, suppose that you want to study the distribution of **fastest**, the fastest speed on has ever driven.  You can do so with the following command:
+In the `m11survey` data frame from the `tigerstats` package, suppose that you want to study the distribution of **fastest**, the fastest speed one has ever driven.  You can do so with the following command:
  
  
  
@@ -111,7 +111,7 @@ Many people think that grouped density plots allow for easier comparison than si
  
 ## From and To
  
-In the `imagpop` data frame, the variable **kkardashtemp** records the rating given, by each individual in the data frame, for the celebrity Kim Kardashian.  The possible rating range from 0 to 100.
+In the `imagpop` data frame, the variable **kkardashtemp** records the rating given, by each individual in the data frame, for the celebrity Kim Kardashian.  The possible ratings range from 0 to 100.
  
 Let's make a density plot of this variable:
  
