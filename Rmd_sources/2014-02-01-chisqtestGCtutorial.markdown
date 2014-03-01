@@ -27,6 +27,13 @@ The function (and some of the data) that we will use comes from the `tigerstats`
     require(tigerstats)
 
  
+**Note:**  If you are not working with the R Studio server hosted by Georgetown College, then you will need install `tigerstats` on your own machine.  You can get the current version from [Github](http://github.com) by first installing the `devtools` package from the CRAN repository, and then running the following commands in a fresh R session:
+ 
+
+    require(devtools)
+    install_github(repo="homerhanumat/tigerstats")
+
+ 
 ## Two Factor Variables (Association)
  
 ### Formula-Data Input
@@ -338,7 +345,7 @@ we want to test the hypotheses:
   
   >$H_a:$  at least one of the above proportions is not $1/3$
   
-We can do so using the $/chi^2$-test for goodness of fit.  The argument `p` will give what the Null distribution believes to be the distribution of the variable **seat** in the Georgetown College population:
+We can do so using the $\chi^2$-test for goodness of fit.  The argument `p` will give what the Null Hypothesis believes to be the distribution of the variable **seat** in the Georgetown College population:
  
 
     chisqtestGC(~seat,data=m111survey,
@@ -424,5 +431,20 @@ For goodness-of-fit tests, the only relevant form of simulation is the one provi
     ## P-Value = 0.0112
 
 ![plot of chunk chisqtutseatsim](/images/figure/chisqtutseatsim.png) 
+
+ 
+## Want Less Output?
+ 
+If you do not wnat to see quite so much output to the console and are only interested in the essentials for reporting a $\chi^2$-test, then set the argument `verbose` to `FALSE`:
+ 
+
+    chisqtestGC(~sex+seat,data=m111survey,
+                verbose=FALSE)
+
+    ## Pearson's Chi-squared test 
+    ## 
+    ## Chi-Square Statistic = 3.734 
+    ## Degrees of Freedom of the table = 2 
+    ## P-Value = 0.1546
 
  
