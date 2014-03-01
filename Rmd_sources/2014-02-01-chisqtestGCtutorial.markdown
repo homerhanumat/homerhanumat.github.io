@@ -4,7 +4,7 @@ title: "chisqtestGC() Tutorial"
 date: 2014-02-01 20:00:00
 comments: true
 categories: [Student-Focused Tutorials]
-pulished:  false
+published: true
 status: publish
 ---
  
