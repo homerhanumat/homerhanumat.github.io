@@ -93,15 +93,22 @@ The two conditional distribution are not the same.  For example, we see that on 
 
 ## Limiting the Output
 
-Sometimes you want just a few of the numbers from `favstats()`.  If you would like to display only those numbers you can do so using brackets "[" and "]", along with a list of the names of the columns you want to see.  For example, to display only the means and the standard deviations for **fastest** broken down by **sex**, ask for:
-
-
+Sometimes you want just a few of the numbers from `favstats()`.  If you would like to display only those numbers you can do so using brackets "[" and "]", along with a list of the names of the columns you want to see.  For example, to display only the means and the standard deviations for **fastest**, ask for:
 
 ```{r}
-favstats(fastest~sex,data=m111survey)[c("mean","sd")]
+favstats(fastest,data=m111survey)[c("mean","sd")]
 ```
 
 The brackets are R's way of locating particular parts of an object.  If you want to display more than one column, make sure to combine their names (in quotes) in a list with the `c()` function, as shown above.
+
+When you are breaking a numerical variable into groups, you will probably also want to see the group names:  this requires the addition of the column named `.group`.  Therefore, to see just the mean and the standard deviation for **fastest** broken down by **sex**, ask for:
+
+
+```{r}
+favstats(fastest~sex,data=m111survey)[c(".group","mean","sd")]
+```
+
+
 
 ## Warning
 
