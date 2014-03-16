@@ -14,19 +14,19 @@ Our solution, for now, involves [Pandoc](http://johnmacfarlane.net/pandoc/), an 
 
 For pdf output, Pandoc first turns the converts the Markdown into $\LaTeX$, so you will need to make sure that $\LaTeX$ is installed on the server as well (some minimal version probably comes with the distribution).  The engine default engine for conversion is `pdflatex`, followed by `lualatex` and `xelatex`, so you need to make sure that one of these is installed.  [`xelatex` came along with our CentOS R Studio server, but had to be configured.]
 
-Students would use Pandoc through the `Pandoc.convert()` function from the `pander` package.  First, one knits the r Markdown document, simply in order to produce the Markdown document along the way.  Then run something like:
+Students would use Pandoc through the `Pandoc.convert()` function from the `pander` package.  First, one knits the r Markdown document, simply in order to produce the Markdown document along the way.  Then set the working to directory to the directory containing the file you wish to convert, and run something like:
 
 ```
 require(pander)
-Pandoc.convert(f="path/to/MyReport.md", format="pdf", options="-S")
+Pandoc.convert(f="MyReport.md", format="pdf", options="-S")
 ```
 
 R complains bitterly in the console---apparently it attempts to open a preview window but cannot---but produces the desired file in the same directory as the Markdown file.
 
-We find that pdf and docx format both look rather nice, and boast a table of contents as well.  The pdf centers plots, too (this is popular with students).  Sadly, the code chunks do lose their background color under Pandoc's default highlighting style of "pygments".  If you try for some other style, e.g.,
+We find that pdf and docx format both look rather nice.  The pdf centers plots, too (this is popular with students).  Sadly, the code chunks do lose their background color under Pandoc's default highlighting style of "pygments".  If you try for some other style, e.g.,
 
 ```
-Pandoc.convert(f="path/to/MyReport.md", format="pdf", 
+Pandoc.convert(f="MyReport.md", format="pdf", 
   options="-S --highlight-style="tango")
 ```
 then in some installations of $\LaTeX$, including the one on our server, there will be an error.  We have not yet decided whether to bug the sysadmin to install a fuller version of $\LaTeX$ in order to get overcome this difficulty.
