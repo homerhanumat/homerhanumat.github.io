@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Five Reasons to Teach Elementary Statistics With R:  #1"
-date: 2014-04-01 01:00:00
+date: 2014-04-05 23:30:00
 comments: true
 categories: [R]
 published: true
@@ -26,7 +26,7 @@ This package is a product of the NSF-funded [Project Mosaic](http://mosaic-web.o
  
 
     require(devtools)
-    install_github(repo="pruim/mosaic")
+    install_github(repo="rpruim/mosaic")
 
  
 `mosaic` aims to flatten the learning curve for elementary students by gentling down the coding aspects of the R experience.  With `mosaic`:
