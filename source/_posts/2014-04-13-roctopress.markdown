@@ -3,7 +3,7 @@ layout: post
 title: "Roctopress:  Configure Your Octopress Blog for R"
 date: 2014-04-13 20:00:00
 comments: true
-categories: [Tech_Note]
+categories: [Tech Note]
 published: true
 status: publish
 ---
