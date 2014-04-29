@@ -83,7 +83,7 @@ In other words, the 90th percentile of SAT scores is around 1128.
  
   >Find a positive number $z$ so that the area under the standard normal curve between $-z$ and $z$ is 0.95.
   
-Here's the solution.  If 95% of the area lies between $-z$ and $z$, then 5% of the area must lie outside of this range.  since normal curve as symmetric, half of this amount--2.5%--must lie before $-z$.  Then the area under the curve before $z$ must be:
+Here's the solution.  If 95% of the area lies between $-z$ and $z$, then 5% of the area must lie outside of this range.  since normal curves are symmetric, half of this amount--2.5%--must lie before $-z$.  Then the area under the curve before $z$ must be:
  
 $$0.025+0.95=0.975.$$
  
