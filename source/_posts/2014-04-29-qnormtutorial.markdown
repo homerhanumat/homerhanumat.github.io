@@ -78,6 +78,24 @@ Here's the solution.  If 10% score higher than you, then 90% score lower.  So ju
  
 In other words, the 90th percentile of SAT scores is around 1128.
  
+**Note**:  `qnorm()` deals by default with areas *below* the given boundary value.  If we had asked for:
+ 
+
+    qnorm(0.10,mean=1000,sd=100)
+
+ 
+then we would have got only the 10th percentile of the SAT scores, not the desired 90th percentile.  If you would like to input 0.10 directly, then you can do so provided that you fiddle with the `upper.tail` argument:
+ 
+
+    qnorm(0.10,mean=1000,sd=100,
+          lower.tail=FALSE)
+
+    ## [1] 1128
+
+ 
+But really it seems easier just to do the math:
+ 
+$1 - 0.10 = 0.90.$
  
 ### An Area Between
  

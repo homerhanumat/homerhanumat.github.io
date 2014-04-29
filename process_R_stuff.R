@@ -15,7 +15,7 @@ convertRMarkdown()
 system("cp figure/* ../source/images/figure")
 #If there is a cache file, do the same for it.
 
-system("cp 2014-04-13-roctopress.markdown ../source/_posts")
+system("cp 2014-04-29-qnormtutorial.markdown ../source/_posts")
 
 
 #Note that one should name all code chunks for graphs, as all R posts piss in the same figure pot.
