@@ -73,7 +73,7 @@ In other words, the 90th percentile of SAT scores is around 1128.
 qnorm(0.10,mean=1000,sd=100)
 ```
 
-then we would have got only the 10th percentile of the SAT scores, not the desired 90th percentile.  If you would like to input 0.10 directly, then you can do so provided that you fiddle with the `upper.tail` argument:
+then we would have got only the 10th percentile of the SAT scores, not the desired 90th percentile.  If you would like to input 0.10 directly, then you can do so provided that you fiddle with the `lower.tail` argument:
 
 ```{r}
 qnorm(0.10,mean=1000,sd=100,
