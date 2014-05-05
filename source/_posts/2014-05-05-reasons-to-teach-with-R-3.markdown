@@ -171,4 +171,6 @@ On the other hand, since `manipulate` apps run directly within RStudio, they can
  
 ## Instructional Apps Gallery?
  
-Considering all of the buzz surrounding Shiny, I am baffled at how difficult it is has been for me to find up-to-date sites featuring Shiny apps for statistics instruction:  perhaps readers of this post could direct me to any that they know of.  Eventually it would be nice to develop something like a ShinyTeachingTube, which could serve as a central hub for Shiny instructional applets.
+[Show Me Shiny](http://www.showmeshiny.com/) has some wonderful instructional apps.
+ 
+Considering all of the buzz surrounding Shiny, I am baffled at how difficult it is has been for me to find other up-to-date sites featuring Shiny apps for statistics instruction.  Perhaps readers of this post could direct me to any that they know of.  Eventually it would be nice to develop something like a ShinyTeachingTube, which could serve as a central hub for Shiny instructional applets.
