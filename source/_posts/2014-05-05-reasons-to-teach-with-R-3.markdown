@@ -63,18 +63,15 @@ After re-sampling for a few minutes, students are convinced that it's not so unl
  
 Students are then prepared to understand a full-scale re-sampling simulation like the following one:
  
-
+``` r
     require(tigerstats)
-
- 
- 
-
     observed <- c(8,18,11,7,9,7)
     fair <- rep(1/6,6)
     set.seed(2020)
     chisqtestGC(observed,p=fair,
           simulate.p.value=TRUE,
           B=3000,graph=TRUE)
+```
 
     ## Pearson's chi-squared test with simulated p-value 
     ## 	 (based on 3000 resamples)
@@ -99,10 +96,10 @@ Sure enough, if the die is fair then there is a reasonably good chance---about 1
  
 **Note:**  Shiny users know that the apps are liable to run more quickly if you run them locally.  To run the foregoing app locally from an R session, pull it out of the `tigerstats` package:
  
-
-    require(siny)
+``` r
+    require(shiny)
     runApp(system.file("SlowGoodness",package="tigerstats"))
-
+```
  
  
  
@@ -113,9 +110,9 @@ Students tend to be somewhat rigid in their handling of "safety checks"---the di
  
 The following Shiny app:
  
-
+``` r
     runApp(system.file("CIMean",package="tigerstats"))
-
+```
  
 addresses two learning outcomes:
  
@@ -129,9 +126,9 @@ Both "slow" (one-at-a-time) simulation and large-scale simulation (5000 samples)
  
 Simulation is also helpful in coming to understand such notions as the level of significance of a hypothesis test (i.e., the probability a true Null Hypothesis in repeated sampling), and the notion of power as well.  See the following app:
  
-
+``` r
     runApp(system.file("Type12Errors",package="tigerstats"))
-
+```
  
 ### Illustrating Fine Points
  
@@ -144,17 +141,17 @@ The so-called "SD line"---the line that runs through the point of averages and w
  
 The following app helps clear things up for students.  It is based on a discussion on the "shallow regression line" issue in [*Statistics*](http://books.wwnorton.com/books/Statistics/), the classic text by Freeman, Pisani and Purves.
  
-
+``` r
     runApp(system.file("ShallowReg",package="tigerstats"))
-
+```
  
 ### Playing Games
  
 Here's is yet another of those "find the regression line" apps that you see all over the web:
  
-
+``` r
     runApp(system.file("FindRegLine",package="tigerstats"))
-
+```
  
 You have the option to keep score.  Your score is the sum of the number of times you have submitted a guess and the following "closeness measure":
  
