@@ -6,6 +6,8 @@ comments: true
 categories: [Tech Note, R]
 ---
 
+(**Added May 19, 2014**:  On May 17 R Stduio announced a [preview release](http://www.rstudio.com/ide/download/preview) of version 0.98b which will render moot the techniques described in this post, as the new version provides built-in options to convert from R Markdown to PDF and to Word formats.)
+
 Eventually we get around to teaching our students to turn in Homework assignments as R Markdown documents, and towards the end of the semester many of them will do a data analysis project, complete with a report generated as an HTML file.
 
 But frankly the HTML output is a bit ugly.  What if students want something that looks a bit better?  What if they use R for data analysis in another class, and the instructor wants the report in some other format---a .docx, for instance?

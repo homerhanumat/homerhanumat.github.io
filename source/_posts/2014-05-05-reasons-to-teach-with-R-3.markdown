@@ -27,10 +27,10 @@ The [previous post](http://statistics.rainandrhino.org/blog/2014/04/08/reasons-t
  
 In order to try the ensuing examples, download an ancillary package that we use for our elementary course:
  
-
+``` s
     require(devtools)
     install_github(repo="homerhanumat/tigerstats")
-
+```
  
  
 ## Reason #3:  RStudio's `shiny`
@@ -63,7 +63,7 @@ After re-sampling for a few minutes, students are convinced that it's not so unl
  
 Students are then prepared to understand a full-scale re-sampling simulation like the following one:
  
-``` r
+``` s
     require(tigerstats)
     observed <- c(8,18,11,7,9,7)
     fair <- rep(1/6,6)
@@ -149,7 +149,7 @@ The following app helps clear things up for students.  It is based on a discussi
  
 Here's is yet another of those "find the regression line" apps that you see all over the web:
  
-``` r
+``` s
     runApp(system.file("FindRegLine",package="tigerstats"))
 ```
  
