@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "New Wine in an Old Bottle:  R Markdown v2 and R Studio on the Cent OS Server"
-date: 2014-08-30 01:00:00
+date: 2014-08-29 01:00:00
 comments: true
 categories: [R, Tech Note]
 published: true
