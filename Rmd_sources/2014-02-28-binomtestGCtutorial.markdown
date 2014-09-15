@@ -12,7 +12,6 @@ status: publish
 {:toc}
  
 
-
  
 ## Preliminaries
  
@@ -23,7 +22,6 @@ You use `binomtestGC()` for inferential procedures regarding one population prop
 
     require(devtools)
     install_github(repo="homerhanumat/tigerstats")
-
  
 ## Working from a Data Frame
  
@@ -41,23 +39,7 @@ So you use:
     binomtestGC(~sex,data=m111survey,
                 success="female")
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  40 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.5634 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.440455            0.680850
-
+    ## Error: could not find function "binomtestGC"
  
 Note that you did not have to specify a confidence level:  by default, the function returns a 95%-confidence interval.
  
@@ -71,23 +53,7 @@ For example, if you want a 90%-confidence interval for $p$, then you use:
     binomtestGC(~sex,data=m111survey,
                 success="female",conf.level=0.90)
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  40 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.5634 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 90% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.458929            0.663741
-
+    ## Error: could not find function "binomtestGC"
  
 ## Significance Tests
  
@@ -118,30 +84,7 @@ then we use
                 success="male",p=0.50,
                 alternative="less")
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  31 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.4366 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.000000            0.541071             
-    ## 
-    ## Test of Significance:
-    ## 
-    ## 	H_0:  p = 0.5 
-    ## 	H_a:  p < 0.5 
-    ## 
-    ## 	P-value:		P = 0.1712
-
+    ## Error: could not find function "binomtestGC"
  
 To test the hypotheses
  
@@ -156,30 +99,7 @@ then we use
                 success="male",p=0.50,
                 alternative="greater")
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  31 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.4366 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.336259            1.000000             
-    ## 
-    ## Test of Significance:
-    ## 
-    ## 	H_0:  p = 0.5 
-    ## 	H_a:  p > 0.5 
-    ## 
-    ## 	P-value:		P = 0.8825
-
+    ## Error: could not find function "binomtestGC"
  
 If we want a two-side test
  
@@ -194,30 +114,7 @@ then we use
     binomtestGC(~sex,data=m111survey,
                 success="male",p=0.50)
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  31 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.4366 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.319150            0.559545             
-    ## 
-    ## Test of Significance:
-    ## 
-    ## 	H_0:  p = 0.5 
-    ## 	H_a:  p != 0.5 
-    ## 
-    ## 	P-value:		P = 0.3425
-
+    ## Error: could not find function "binomtestGC"
   
 Note that there is no need to specify an alternative, since the default value of `alternative` is "two.sided".
  
@@ -231,32 +128,7 @@ We can get a graph of the $P$-value simply by setting the argument `graph` to `T
                 alternative="less",
                 graph=TRUE)
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 
-    ## 
-    ## Descriptive Results:  31 successes in 71 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.4366 
-    ## SE(p.hat):	 0.0589 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.000000            0.541071             
-    ## 
-    ## Test of Significance:
-    ## 
-    ## 	H_0:  p = 0.5 
-    ## 	H_a:  p < 0.5 
-    ## 
-    ## 	P-value:		P = 0.1712
-
-![plot of chunk binomtesttutsexless](/images/figure/binomtesttutsexless.png) 
-
+    ## Error: could not find function "binomtestGC"
  
  
  
@@ -278,30 +150,7 @@ Hence we use:
 
     binomtestGC(x=1325,n=2500,p=0.50)
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Results based on Summary Data
-    ## 
-    ## 
-    ## Descriptive Results:  1325 successes in 2500 trials
-    ## 
-    ## Inferential Results:
-    ## 
-    ## Estimate of p:	 0.53 
-    ## SE(p.hat):	 0.01 
-    ## 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.510210            0.549719             
-    ## 
-    ## Test of Significance:
-    ## 
-    ## 	H_0:  p = 0.5 
-    ## 	H_a:  p != 0.5 
-    ## 
-    ## 	P-value:		P = 0.0029
-
+    ## Error: could not find function "binomtestGC"
  
 ## Want Less Output?
  
@@ -314,14 +163,5 @@ For example, if you want a 90%-confidence interval and a two-sided test then try
                 success="male",p=0.50,
                 verbose=FALSE)
 
-    ## 
-    ## Exact Binomial Procedures for a Single Proportion p:
-    ## 	Variable under study is sex 
-    ## 95% Confidence Interval for p:
-    ## 
-    ##           lower.bound         upper.bound          
-    ##           0.319150            0.559545             
-    ## 
-    ## 	P-value:		P = 0.3425
-
+    ## Error: could not find function "binomtestGC"
  
