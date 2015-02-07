@@ -1,15 +1,11 @@
 ---
-layout: post
-title: "barchartGC() Tutorial"
-date: 2014-02-21 21:00:00
-comments: true
-categories: [Student-Focused Tutorials]
-pulished:  false
-status:  process
+title: "Using barchartGC()"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Using barchartGC()}
+  %\usepackage[utf8]{inputenc}
 ---
-
-* will be replaced by TOC
-{:toc}
 
 ```{r include=FALSE}
 opts_chunk$set(tidy=FALSE,fig.width=3.5,fig.height=3.5)
@@ -24,25 +20,12 @@ opts_chunk$set(tidy=FALSE,fig.width=3.5,fig.height=3.5)
 require(tigerstats)
 ```
 
-**Note:**  If you are not working with the R Studio server hosted by Georgetown College, then you will need install `tigerstats` on your own machine.  You can get the current version from [Github](http://github.com) by first installing the `devtools` package from the CRAN repository, and then running the following commands in a fresh R session:
-
-```{r eval=FALSE}
-require(devtools)
-install_github(repo="homerhanumat/tigerstats")
-```
-
 In this tutorial we will work with the `m111survey` data frame from `tigerstats` package.  If you are not yet familiar with this data, then run:
 
 ```{r eval=FALSE}
 data(m111survey)
 View(m111survey)
 help(m111survey)
-```
-
-Remember that you can also learn about the types of each variable in the data frame with the `str()` function:
-
-```{r}
-str(m111survey)
 ```
 
 
@@ -52,14 +35,16 @@ To look see a bar chart for the tallies of the factor variable **seat**:
 
 ```{r barchartseatfreq,tidy=FALSE}
 barchartGC(~seat,data=m111survey,type="frequency",
-           main="Barchart of Seating Preference")
+           main="Barchart of Seating Preference",
+           xlab="Seating Preference")
 ```
 
 In order to get the actual distribution of **seat**, you want percents rather than counts:
 
 ```{r barchartseatperc,tidy=FALSE}
 barchartGC(~seat,data=m111survey,type="percent",
-           main="Barchart of Seating Preference")
+           main="Barchart of Seating Preference",
+          xlab="Seating Preference")
 ```
 
 If you have a table of the counts for a variable, then you can enter it directly.  For example, suppose you have already made:
@@ -72,7 +57,8 @@ Seat
 Then you can just enter the table:
 ```{r barchartseattab, tidy=FALSE}
 barchartGC(Seat,type="percent",
-           main="Barchart of Seating Preference")
+           main="Barchart of Seating Preference",
+           xlab="Seating Preference")
 ```
 
 
@@ -83,7 +69,9 @@ You can also use `barchartGC()` to study the relationship between two factor var
 ```{r barchartsexseat, tidy=FALSE}
 barchartGC(~sex+seat,data=m111survey,
            type="percent",
-           main="Sex and Seating Preference\nat Georgetown")
+           main="Sex and Seating Preference\nat Georgetown",
+           xlab="Sex of student",
+           sub="Bar color shows seating preference")
 ```
 
 Again, if you happen to have already made a two-way table, then you can just enter it:
@@ -97,8 +85,31 @@ Here is the bar chart from the two-way table:
 
 ```{r barchartsexseattab, tidy=FALSE}
 barchartGC(SexSeat,type="percent",
-           main="Sex and Seating Preference\nat Georgetown")
+           main="Sex and Seating Preference\nat Georgetown",
+           xlab="Sex of student",
+           sub="Bar color shows seating preference")
 ```
+
+## Flat Bar Charts
+
+To study the relationship between tow factor variables through numericla summaries, you might make a table of row percentages, as follows:
+
+```{r}
+rowPerc(SexSeat)
+```
+
+To get  abar chart that looks like a visual "copy" o fth erow percentages, set the argument `flat` to `TRUE`:
+
+```{r}
+barchartGC(SexSeat,type="percent",
+           main="Sex and Seating Preference\nat Georgetown",
+           ylab="Sex of student",
+           sub="Bar color shows seating preference",
+           flat=TRUE)
+```
+
+
+Note that you might want a label for the y-axis, now.
 
 ## Warning
 

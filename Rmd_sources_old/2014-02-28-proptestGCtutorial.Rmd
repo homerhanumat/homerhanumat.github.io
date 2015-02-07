@@ -1,21 +1,20 @@
 ---
-layout: post
-title: "proptestGC() Tutorial"
-date: 2014-02-28 21:00:00
-comments: true
-categories: [Student-Focused Tutorials]
-published:  false
-status:  process
+title: "Using proptestGC()"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Using proptestGC()}
+  %\usepackage[utf8]{inputenc}
 ---
 
-* will be replaced by TOB
-{:toc}
-
 ```{r include=FALSE}
-opts_chunk$set(tidy=FALSE,fig.width=4.5,fig.height=3.5)
+require(knitr)
+opts_chunk$set(tidy=FALSE,fig.width=5.5,fig.height=3.5)
 ```
 
-## Preliminaries
+# Preliminaries
 
 You use `proptestGC()` for inferential procedures regarding:
 
@@ -28,14 +27,7 @@ The function comes from the `tigerstats` package, so make sure that `tigerstats`
 require(tigerstats)
 ```
 
-**Note:**  If you are not working with the R Studio server hosted by Georgetown College, then you will need to install `tigerstats` on your own machine.  You can get the current version from [Github](http://github.com) by first installing the `devtools` package from the CRAN repository, and then running the following commands in a fresh R session:
-
-```{r eval=FALSE}
-require(devtools)
-install_github(repo="homerhanumat/tigerstats")
-```
-
-## One Proportion, From Data Frame (Read This!!)
+# One Proportion, From Data Frame (Read This!!)
 
 In inference procedures regarding one proportion, `binomtestGC()` is preferred over `proptestGC()`, especially at smaller sample sizes.  Nevertheless, read this section carefully.  It talks about:
 
@@ -48,7 +40,7 @@ In inference procedures regarding one proportion, `binomtestGC()` is preferred o
 in ways that apply to all uses of `proptestGC()`.
 
 
-### Confidence Interval Only
+## Confidence Interval Only
 
 In the `m111survey` data from the `tigerstats` package, suppose you want a 95%-confidence interval for:
 
@@ -73,7 +65,7 @@ proptestGC(~sex,data=m111survey,
 ```
 
 
-### Interval and Test
+## Interval and Test
 
 If you want a test of significance as well as the confidence interval, then
 
@@ -129,7 +121,7 @@ proptestGC(~sex,data=m111survey,p=0.50,
            success="female")
 ```
 
-### Graph of the P-Value
+## Graph of the P-Value
 
 Anytime you want, you can get a graph of the $P$-value for your test, simply by setting the argument `graph` to `TRUE`:
 
@@ -138,7 +130,7 @@ proptestGC(~sex,data=m111survey,p=0.50,
         success="female",graph=TRUE)
 ```
 
-### Limiting Output
+## Limiting Output
 
 Sometimes you don't need R to print so much information to the console.  If you want only the basics (such as a confidence interval, the test statistic and $P$-value), then set the `verbose` argument to `FALSE`:
 
@@ -148,11 +140,11 @@ proptestGC(~sex,data=m111survey,p=0.50,
 ```
 
 
-## One Proportion, From Summary Data
+# One Proportion, From Summary Data
 
 Again note that `binomtestGC()` is preferred in this situation, especially at smaller sample sizes.
 
-### Confidence Interval Only
+## Confidence Interval Only
 
 Say that you have taken a simple random sample of size $n=2500$ from the population of all registered voters in the U.S., and you find that 1325 of them favor the Affordable Care Act.  Suppose that you would like to make a confidence interval for
 
@@ -170,7 +162,7 @@ proptestGC(x=1325,n=2500)
 ```
 
 
-### Interval and Test
+## Interval and Test
 
 If you also want to do a test of significance, again specify `p` and `alternative`.  For example, to test the hypotheses
 
@@ -186,9 +178,9 @@ proptestGC(x=1325,n=2500,
 ```
 
 
-## Difference of Two Proportions, Data Frame
+# Difference of Two Proportions, Data Frame
 
-### Confidence Interval Only
+## Confidence Interval Only
 
 Suppose
 
@@ -204,7 +196,7 @@ proptestGC(~sex+enough_Sleep,data=m111survey,
 ```
 
 
-### Interval and Test
+## Interval and Test
 
 If you want a 95%-confidence interval for $p\_1 - p_2$ and you would like to test the hypotheses:
 
@@ -225,7 +217,7 @@ Notice that this time:
 * you did not have to set `conf.level` to 0.95 (the default value of the argument is 0.95 already);
 * you did not have to specify the two-sided alternative (the default value of `alternative` is already "two.sided").
 
-### Order of the Groups
+## Order of the Groups
 
 Suppose that in the previous situation you had defined:
 
@@ -241,9 +233,9 @@ proptestGC(~sex+enough_Sleep,data=m111survey,
 ```
 
 
-## Difference of Two Proportions, Summary Data
+# Difference of Two Proportions, Summary Data
 
-### Confidence Interval Only
+## Confidence Interval Only
 
 Suppose that you have taken two independent samples from two populations (or performed a completely randomized experiment with two treatment groups), and you have the following summary data:
 
@@ -263,7 +255,7 @@ proptestGC(x=c(1325,905),n=c(2500,1800))
 
 
 
-### Interval and Test
+## Interval and Test
 
 Suppose that you want a 90%-confidence interval for $p\_1 - p_2$ and that you would like to test the hypotheses:
 

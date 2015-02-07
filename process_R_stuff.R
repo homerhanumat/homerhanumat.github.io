@@ -12,10 +12,10 @@ source("~/octopress/octopress/rmarkdown.r")
 
 #for posts, change wd to RMD_sources, then:
 convertRMarkdown()
-system("cp figure/* ../source/images/figure")
+system("cp titleofdoc/figure-markdown_strct/* ../source/images/figure")
 #If there is a cache file, do the same for it.
 
-system("cp 2014-09-03-google-charts.markdown ../source/_posts")
+system("cp titleofdoc.markdown ../source/_posts")
 
 
 #Note that one should name all code chunks for graphs, as all R posts piss in the same figure pot.

@@ -4,15 +4,18 @@ title: "binomtestGC() Tutorial"
 date: 2014-02-28 20:00:00
 comments: true
 categories: [Student-Focused Tutorials]
-published:  false
+published:  true
 status:  process
+output:  md_document
 ---
 
 * will be replaced by TOB
 {:toc}
 
 ```{r include=FALSE}
+require(knitr)
 opts_chunk$set(tidy=FALSE,fig.width=4.5,fig.height=3.5)
+require(tigerstats)
 ```
 
 ## Preliminaries
@@ -118,7 +121,7 @@ Note that there is no need to specify an alternative, since the default value of
 
 ## A Graph of the $P$-Value
 
-Fro a one-sided test, we can get a graph of the $P$-value simply by setting the argument `graph` to `TRUE`:
+We can get a graph of the $P$-value simply by setting the argument `graph` to `TRUE`:
 
 ```{r binomtesttutsexless}
 binomtestGC(~sex,data=m111survey,
@@ -127,7 +130,6 @@ binomtestGC(~sex,data=m111survey,
             graph=TRUE)
 ```
 
-For a two-sided test, the function gets the $P$-value by doubling an appropriate one-sided $P$-value, so no graph represents the $P$-value very well.  Hence the function will refuse to provide a graph in that case.
 
 
 ## Working with Summary Data
