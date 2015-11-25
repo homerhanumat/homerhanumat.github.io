@@ -9,6 +9,8 @@ status: publish
 ---
  
 
-I stand in awe of the R wizards who post their latest and greatest <a href = "http://shiny.rstudio.com" target ="_blank">Shiny</a> feats on R-Bloggers.  It's taken me a while to find my way around Shiny, but at last I feel ready to fill in a few gaps for others who may be just starting out and who aspire to write reasonably involved, user-friendly simulation apps.  To make it a bit more fun I've written it up as an R Markdown document hosted on `shinyapps.io`:  <a href="http://homer.shinyapps.io/sim_tutorial_Rmd" target="_blank">here you go<a>.
+(**Edited November 25, 2015.**)  I stand in awe of the R wizards who post their latest and greatest <a href = "http://shiny.rstudio.com" target ="_blank">Shiny</a> feats on R-Bloggers.  It's taken me a while to find my way around Shiny, but at last I feel ready to fill in a few gaps for others who may be just starting out and who aspire to write reasonably involved, user-friendly simulation apps.  To make it a bit more fun I've written it up as an R Markdown document.
 
-Prerequisites are indicated in the tutorial; so are links to the source code.  If you have feedback or suggestions for improvements, comment here or post an Issue on the GitHub site.
+I used to host the document on `shinyapps.io`, but it pushed my monthly hours over their limit.  You can get the source code, however, from the <a href="https://github.com/homerhanumat/shinyTutorials" target="_blank">GitHub repository<a>.  Check the repo's Readme for prerequisites and instructions on access.
+
+If you have feedback or suggestions for improvements, comment here or post an Issue on the GitHub site.  Happy learning!
