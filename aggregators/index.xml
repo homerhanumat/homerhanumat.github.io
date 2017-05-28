@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aggregators on Academic Site</title>
+    <link>/aggregators/</link>
+    <description>Recent content in Aggregators on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <atom:link href="/aggregators/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R Bloggers</title>
+      <link>/aggregators/r-bloggers/</link>
+      <pubDate>Tue, 15 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/aggregators/r-bloggers/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

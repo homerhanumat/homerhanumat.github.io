@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Academic Site</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Content tagged as &#39;Academic&#39;</title>
+      <link>/tags/academic/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/academic/</guid>
+      <description>&lt;p&gt;Here is a list of all the content that has been tagged as &lt;em&gt;academic&lt;/em&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Extrapolation</title>
+      <link>/tags/extrapolation/</link>
+      <pubDate>Wed, 03 Sep 2014 20:30:00 +0000</pubDate>
+      
+      <guid>/tags/extrapolation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Googlevis</title>
+      <link>/tags/googlevis/</link>
+      <pubDate>Wed, 03 Sep 2014 20:30:00 +0000</pubDate>
+      
+      <guid>/tags/googlevis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>/tags/jekyll/</link>
+      <pubDate>Tue, 15 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knitr</title>
+      <link>/tags/knitr/</link>
+      <pubDate>Tue, 15 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/tags/knitr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Sat, 19 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lattice</title>
+      <link>/tags/lattice/</link>
+      <pubDate>Fri, 11 Mar 2016 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/lattice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Manipulate</title>
+      <link>/tags/manipulate/</link>
+      <pubDate>Tue, 08 Apr 2014 23:59:59 +0000</pubDate>
+      
+      <guid>/tags/manipulate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mosaic</title>
+      <link>/tags/mosaic/</link>
+      <pubDate>Tue, 01 Apr 2014 01:00:00 +0000</pubDate>
+      
+      <guid>/tags/mosaic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Bloggers</title>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Thu, 21 Jan 2016 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-bloggers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Packages</title>
+      <link>/tags/r-packages/</link>
+      <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Studio</title>
+      <link>/tags/r-studio/</link>
+      <pubDate>Sat, 19 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-studio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Studio Addins</title>
+      <link>/tags/r-studio-addins/</link>
+      <pubDate>Fri, 11 Mar 2016 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-studio-addins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>/tags/shiny/</link>
+      <pubDate>Fri, 03 Jul 2015 19:00:00 +0000</pubDate>
+      
+      <guid>/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simulation</title>
+      <link>/tags/simulation/</link>
+      <pubDate>Fri, 03 Jul 2015 19:00:00 +0000</pubDate>
+      
+      <guid>/tags/simulation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

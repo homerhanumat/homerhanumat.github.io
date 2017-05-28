@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manipulate on Academic Site</title>
+    <link>/tags/manipulate/</link>
+    <description>Recent content in Manipulate on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <lastBuildDate>Tue, 08 Apr 2014 23:59:59 +0000</lastBuildDate>
+    <atom:link href="/tags/manipulate/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Five Reasons to Teach Elementary Statistics With R:  #2</title>
+      <link>/post/2014-04-08-reasons-to-teach-with-r-2/</link>
+      <pubDate>Tue, 08 Apr 2014 23:59:59 +0000</pubDate>
+      
+      <guid>/post/2014-04-08-reasons-to-teach-with-r-2/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is is second in a projected five-part series of posts aimed at colleagues who teach elementary statistics. If you teach with R but hesitate to spring such a powerful and complex tool on unsuspecting introductory students—many of whom whom will have had no prior experience with the command line, much less with coding—then I hope these posts will give you some encouragement.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://statistics.rainandrhino.org/blog/2014/04/05/tigerstatsintro/&#34;&gt;first post&lt;/a&gt; in this series introduced package &lt;code&gt;mosaic&lt;/code&gt;, and promised to review a supplementary package that I and a colleague put together for our own students, but I’ve decided put that off a bit and focus instead on another powerful new tool for statistics instruction: the well-known &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; Integrated Development Environment for R, and its &lt;code&gt;manipulate&lt;/code&gt; package in particular.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reason-2-rstudios-manipulate&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Reason #2: RStudio’s &lt;code&gt;manipulate&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;You might think that an IDE is strictly for programmers. The authors of &lt;code&gt;mosaic&lt;/code&gt;, though, looked at RStudio and saw an environment ripe for customization to fit the elementary classroom. RStudio offers many benefits in this regard, but for this post I’ll concentrate on just one: its pre-installed package &lt;code&gt;manipulate&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The RStudio developers may have written &lt;code&gt;manipulate&lt;/code&gt; simply as a prototype for &lt;a href=&#34;http://shiny.rstudio.com/&#34;&gt;Shiny&lt;/a&gt;, but it happens to be a fabulous tool for authoring instructional applets. To be sure, there are many great instructional apps out on the web—visual stunners put together by authentic web developers—but the everyday statistics instructor may find that &lt;code&gt;manipulate&lt;/code&gt; empowers her to quickly work up small instructional apps that address needs specific to her own students.&lt;/p&gt;
+&lt;p&gt;At my College, for example, we believe that simulation is important to understanding probability concepts, but we also find that our students don’t easily grasp the import of a simulation when the computers simply generates, say, 3000 re-samples and summarizes the results, &lt;em&gt;all in flash&lt;/em&gt;. We feel the need for plenty of “one at a time” simulation experiences that serve as transitions to the analysis of large-scale simulation results, and we don’t always find apps on the web that cater to our needs in just the way we would like.&lt;/p&gt;
+&lt;p&gt;Suppose you want students to understand coverage properties of confidence intervals—i.e., what we really mean when we say that we are “95%-confident” that the interval covers the population parameter–in a ground-up way. Then you might do as my colleague Rebekah Robinson did, and write a manipulate app like &lt;code&gt;CIMean()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To get the app, install package &lt;code&gt;tigerstats&lt;/code&gt; from CRAN, or for the very latest version try:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(devtools)
+install_github(repo=&amp;quot;homerhanumat/tigerstats&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, get into RStudio (if you are not there already), and run:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(tigerstats)
+require(manipulate)
+CIMean(~height,data=imagpop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The app loads in the (roughly normally distributed) heights of an imaginary population of 10,000 people. Sliders allow the user to select a sample size and a desired confidence level. Click on one of the sliders and you’ll get just one sample from the population, with a histogram of the sample overlaying the density curve for the population, and a confidence interval displayed clearly along the horizontal axis. The user can easily see whether the interval contains the population mean (marked by the red vertical line). Output to the console also keeps the user apprised of what has just happened. When the user has clicked enough to get the idea, he/she can ask for a lot of samples at once, verifying that when assumptions are met 95%-confidence intervals do indeed cover their target parameter about 95% of the time.&lt;/p&gt;
+&lt;p&gt;One advantage of &lt;code&gt;manipulate&lt;/code&gt; apps over the visually spectacular ones you find on the web is that you can easily write them to accept arbitrary input. &lt;code&gt;CIMean()&lt;/code&gt;, for example, will deal with any numerical variable from any data frame on R’s search path,including the quite right-skewed variable &lt;strong&gt;income&lt;/strong&gt; from&lt;code&gt;imagpop&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CIMean(~income,data=imagpop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The user realizes quickly that the standard t-intervals applied to small samples from skewed populations do not possess the advertised coverage properties.&lt;/p&gt;
+&lt;p&gt;Once you get into the spirit of &lt;code&gt;manipulate&lt;/code&gt; you may find yourself writing apps that work in a similar vein without requiring the elements of the package itself. For example &lt;code&gt;ChisqSimSlow()&lt;/code&gt;, which does not require &lt;code&gt;manipulate&lt;/code&gt; (and in fact runs outside of RStudio) takes arbitrary data and applies a one-at-a-time re-sampling routine to slowly build up the Null Distribution of the chi-square statistic, in a situation where one is testing whether two factor variables are associated.&lt;/p&gt;
+&lt;p&gt;For example, suppose we are looking at survey in which a random sample of students were asked for their sex and for their seating preference in a classroom:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;SexSeat &amp;lt;- xtabs(~sex+seat,data=m111survey)
+SexSeat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         seat
+## sex      1_front 2_middle 3_back
+##   female      19       16      5
+##   male         8       16      7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s check this out with some row percentages:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rowPerc(SexSeat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         seat
+## sex      1_front 2_middle 3_back  Total
+##   female   47.50    40.00  12.50 100.00
+##   male     25.81    51.61  22.58 100.00&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hmm, the women in the sample seem much more likely than the guys to prefer the Front! Does this data provide convincing evidence for a relationship between &lt;strong&gt;sex&lt;/strong&gt; and &lt;strong&gt;seat&lt;/strong&gt; in the College population at large? To investigate this, a student might try:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ChisqSimSlow(~sex+seat,data=m111survey)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Keep asking for a re-sample, and after a while you get the sense that the observed value of the chi-square statistic is not an unusually large value, if &lt;strong&gt;sex&lt;/strong&gt; and &lt;strong&gt;seat&lt;/strong&gt; are, all along, unrelated in the population.&lt;/p&gt;
+&lt;p&gt;Once students understand the import of simulation they can employ it to advantage on a large scale. In the &lt;code&gt;tigerstats&lt;/code&gt; version of the &lt;code&gt;chisq.test()&lt;/code&gt;, the student might ask for:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(2014)
+chisqtestGC(~sex+seat,data=m111survey,
+      simulate.p.value=&amp;quot;random&amp;quot;,
+      B=3000,
+      graph=TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Pearson&amp;#39;s chi-squared test with simulated p-value, marginal sums not fixed
+##   (based on 3000 resamples) 
+## 
+## Observed Counts:
+##         seat
+## sex      1_front 2_middle 3_back
+##   female      19       16      5
+##   male         8       16      7
+## 
+## Counts Expected by Null:
+##         seat
+## sex      1_front 2_middle 3_back
+##   female   15.21    18.03   6.76
+##   male     11.79    13.97   5.24
+## 
+## Contributions to the chi-square statistic:
+##         seat
+## sex      1_front 2_middle 3_back
+##   female    0.94     0.23   0.46
+##   male      1.22     0.29   0.59
+## 
+## 
+## Chi-Square Statistic = 3.734 
+## Degrees of Freedom of the table = 2 
+## P-Value = 0.1729&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2014-04-08-reasons-to-teach-with-R-2_files/figure-html/reasonsteachr2-1.png&#34; width=&#34;432&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;do-it-yourself&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Do It Yourself&lt;/h3&gt;
+&lt;p&gt;I do not discuss the above apps with the expectation that colleagues at other institution will adopt them. On the contrary, my point is merely that the folks at RStudio have provided R-users with a tool that enables ordinary instructors like us to write our own apps. If you like a particular app, them check out the source code (&lt;code&gt;tigerstats&lt;/code&gt;, for example is &lt;a href=&#34;http:github.com/homerhanumat/tigerstats&#34;&gt;on GitHub&lt;/a&gt;), clean it up a bit maybe, and use it as a basis for an app tailored to your particular tastes and the needs of your particular students.&lt;/p&gt;
+&lt;p&gt;Better yet, persuade an upper-level student to write the app for you as a programming project: &lt;code&gt;manipulate&lt;/code&gt;’s greatest use may prove to be as a gateway-drug to coding!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-time&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Next Time&lt;/h3&gt;
+&lt;p&gt;In the next post, maybe we’ll have a look at what R Studio’s &lt;code&gt;shiny&lt;/code&gt; can do for an elementary class.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

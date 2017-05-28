@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Packages on Academic Site</title>
+    <link>/tags/r-packages/</link>
+    <description>Recent content in R Packages on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <lastBuildDate>Thu, 25 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/r-packages/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Addin Plots</title>
+      <link>/project/addinplots/</link>
+      <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/addinplots/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tiger Tree</title>
+      <link>/project/tigertree/</link>
+      <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/tigertree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tigerstats</title>
+      <link>/project/tigerstats/</link>
+      <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/tigerstats/</guid>
+      <description>&lt;p&gt;A collection of data sets and functions that are useful in the teaching of statistics at an elementary level to students who may have little or no previous experience with the command line.  The functions for elementary inferential procedures follow a uniform interface for user input.  Some of the functions are instructional applets that can only be run on the R Studio integrated development environment with package &lt;strong&gt;manipulate&lt;/strong&gt; installed.  Other instructional applets are Shiny apps that may be run locally. In teaching the package is used alongside of package &lt;strong&gt;mosaic&lt;/strong&gt;, &lt;strong&gt;mosaicData&lt;/strong&gt; and &lt;strong&gt;abd&lt;/strong&gt;, which are therefore listed as dependencies.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

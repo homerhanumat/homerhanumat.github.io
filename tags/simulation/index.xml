@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simulation on Academic Site</title>
+    <link>/tags/simulation/</link>
+    <description>Recent content in Simulation on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <lastBuildDate>Fri, 03 Jul 2015 19:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/simulation/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Tutorial on Writing Simulation Apps in Shiny</title>
+      <link>/post/2015-07-03-shiny-simulation-tutorial/</link>
+      <pubDate>Fri, 03 Jul 2015 19:00:00 +0000</pubDate>
+      
+      <guid>/post/2015-07-03-shiny-simulation-tutorial/</guid>
+      <description>&lt;p&gt;(&lt;strong&gt;Edited November 25, 2015.&lt;/strong&gt;)  I stand in awe of the R wizards who post their latest and greatest &lt;a href = &#34;http://shiny.rstudio.com&#34; target =&#34;_blank&#34;&gt;Shiny&lt;/a&gt; feats on R-Bloggers.  It&amp;rsquo;s taken me a while to find my way around Shiny, but at last I feel ready to fill in a few gaps for others who may be just starting out and who aspire to write reasonably involved, user-friendly simulation apps.  To make it a bit more fun I&amp;rsquo;ve written it up as an R Markdown document.&lt;/p&gt;
+
+&lt;p&gt;I used to host the document on &lt;code&gt;shinyapps.io&lt;/code&gt;, but it pushed my monthly hours over their limit.  You can get the source code, however, from the &lt;a href=&#34;https://github.com/homerhanumat/shinyTutorials&#34; target=&#34;_blank&#34;&gt;GitHub repository&lt;/a&gt;.  Check the repo&amp;rsquo;s Readme for prerequisites and instructions on access.&lt;/p&gt;
+
+&lt;p&gt;If you have feedback or suggestions for improvements, comment here or post an Issue on the GitHub site.  Happy learning!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

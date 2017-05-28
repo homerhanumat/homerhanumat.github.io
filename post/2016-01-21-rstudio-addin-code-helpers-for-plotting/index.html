@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.21" />
+  <meta name="author" content="Homer White">
+  <meta name="description" content="Professor of Mathematics and Computer Science">
+
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/css/hugo-academic.css">
+  
+  <link rel="stylesheet" href="/css/custom.css">
+  
+
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Academic Site">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Academic Site">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="/post/2016-01-21-rstudio-addin-code-helpers-for-plotting/">
+
+  
+
+  <title>RStudio Addin Code-Helpers for Plotting | Academic Site</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Academic Site</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+  <div class="article-container">
+    <h1 itemprop="name">RStudio Addin Code-Helpers for Plotting</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2016-01-21 18:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Jan 21, 2016
+    </time>
+  </span>
+
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/r-studio-addins">R Studio Addins</a
+    >, 
+    
+    <a href="/tags/lattice">Lattice</a
+    >, 
+    
+    <a href="/tags/r-bloggers">R-bloggers</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2016-01-21-rstudio-addin-code-helpers-for-plotting%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=RStudio%20Addin%20Code-Helpers%20for%20Plotting&amp;url=%2fpost%2f2016-01-21-rstudio-addin-code-helpers-for-plotting%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2016-01-21-rstudio-addin-code-helpers-for-plotting%2f&amp;title=RStudio%20Addin%20Code-Helpers%20for%20Plotting"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2016-01-21-rstudio-addin-code-helpers-for-plotting%2f&amp;title=RStudio%20Addin%20Code-Helpers%20for%20Plotting"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=RStudio%20Addin%20Code-Helpers%20for%20Plotting&amp;body=%2fpost%2f2016-01-21-rstudio-addin-code-helpers-for-plotting%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>There are many benefits to teaching undergraduate statistics with R&ndash;especially in the RStudio environment&ndash;but it must be admitted that the learning curve is fairly steep, especially when it comes to tinkering with plots to get them to look just the way one wants.  If there were ever a situation when I would prefer that the students have access to a graphical user interface, production of plots would be it.</p>
+
+<p>You can, of course, write Shiny apps like <a href="https://homer.shinyapps.io/bwplotAddin/" target="_blank">this one</a>, where the user controls features of the graphs through various input-widgets.  But then the user must visit the remote site, and if he or she wishes to build a graph from a data frame not supplied by the app, then the app has to deal with thorny issues surrounding the uploading and processing of .csv files, and in the end the user still has to copy and paste the relevant graph-making code back to wherever it was needed.</p>
+
+<p>It would be much nicer if all of this could be accomplished locally.  <code>mPlot()</code> in <a href="https://cran.r-project.org/web/packages/mosaic/index.html" target="_blank">package <code>mosaic</code></a> does a great job in this respect by taking advantage of RStudio&rsquo;s <code>manipulate</code> package.  However, <code>manipulate</code> doesn&rsquo;t offer much flexibility in terms of control of inputs, so it&rsquo;s not feasible within the <code>manipulate</code> framework to write a code-helper that allows much fine-tuning one&rsquo;s plot.</p>
+
+<p><a href="http://rstudio.github.io/rstudioaddins/" target="_blank">Addins</a> (a new feature in the current RStudio <a href="https://www.rstudio.com/products/rstudio/download/preview/" target="_blank">Preview Version</a>) permit us to have the best of both worlds.  An Addin works like a locally-run Shiny app.  As such it can draw on information available in the user&rsquo;s R session, and it can return information directly to where the user needs it in a source document such as an R script or R Markdown file.</p>
+
+<p><a href="https://github.com/homerhanumat/addinplots" target="_blank">addinplots</a> is a package of Addins, each of which is a code-helper for a particular type of plot in the <code>lattice</code> graphing system.  The intention is to help students (and colleagues who are newcomers to <code>lattice</code>) to make reasonably well-customized graphs while teaching&ndash;through example&ndash;the rudiments of the coding principles of the <code>lattice</code> package.</p>
+
+<p>If you are using the Preview version of RStudio and would like to give these Addins a try, then follow the installation directions in the <a href="http://rstudio.github.io/rstudioaddins/" target="_blank">article cited above</a>.  In addition, install my package and one of its dependencies, as follows:</p>
+
+<pre><code>devtools::install_github(&quot;homerhanumat/shinyCustom&quot;)
+devtools::install_github(&quot;homerhanumat/addinplots&quot;)
+</code></pre>
+
+<p>To use an Addin:</p>
+
+<ul>
+<li>Type the name of a data frame into an R script, or inside a code chunk in an R Markdown document.</li>
+<li>Select the name.</li>
+<li>Go to the Addins button and pick the Addin for the plot you wish to make.</li>
+<li>The Addin will walk you through the process of constructing a graph based upon variables in your data frame.  At each step you see the graph to that point, along with R-code to produce said graph.</li>
+<li>When you are happy with your graph press the Done button. The app will go dark.</li>
+<li>Close the app tab and return to RStudio.</li>
+</ul>
+
+<p>You will see that the code for your graph has been inserted in place of the name of the data frame.</p>
+
+<p>These Addins are flexible enough to handle the everyday needs of beginning students in undergraduate statistics classes, but they only scratch the surface of <code>lattice</code>&rsquo;s capability.  Eventually students should graduate to coding directly with <code>lattice</code>.</p>
+
+<p>My Addins are scarcely more than toys, and clunky ones at that.  I imagine that before long other folks will have written a host of Addins that accomplish some quite sophisticated tasks and make the R environment much more &ldquo;GUI.&rdquo;  I&rsquo;m excited to see what will happen.</p>
+
+<p><em>Note on addinplot performance</em>:  My Addins are intended for use in a classroom setting where the entire class is working on a single not-so-powerful RStudio server.  Accordingly many of the input controls have been customized to inhibit their propensity to update.  When you are entering text or a number, you need to press Enter or shift focus away from the input area in order to cue the machine to update your information.  You will also note (in the <code>cloudplotAddin</code>) that sliders take a bit longer to &ldquo;respond&rdquo;.  These input-damping behaviors, enabled by the <a href="https://github.com/homerhanumat/shinyCustom" target="_blank"><code>shinyCustom</code></a> package, prevent the Server from being overwhelmed by numerous requests for expensive graph-computations that most users don&rsquo;t really want.</p>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="/post/2015-12-19-latex-rstudio-debian/"><span
+      aria-hidden="true">&larr;</span> Notes on LaTeX Installation for R Studio</a></li>
+    
+
+    
+    <li class="next"><a href="/post/2016-03-11-rstudio-addinplots-installation/">Installing the Addinplots Package <span
+      aria-hidden="true">&rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  <div id="gh-comments-list"></div>
+
+<script
+			  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+			  crossorigin="anonymous"></script>
+
+<script>
+var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" + ""
+var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" + "" + "/comments"
+
+$(document).ready(function () {
+    $.ajax(api_url, {
+        headers: {Accept: "application/vnd.github.v3.html+json"},
+        dataType: "json",
+        success: function(comments) {
+            $("#gh-comments-list").append("<p id='comments-invite'>Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post</p>");
+            $.each(comments, function(i, comment) {
+
+                var date = new Date(comment.created_at);
+
+                var t = "<div class='gh-comment'>";
+                t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
+                t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
+                t += " posted at ";
+                t += "<em>" + date.toUTCString() + "</em>";
+                t += "<div class='gh-comment-hr'></div>";
+                t += comment.body_html;
+                t += "</div>";
+                $("#gh-comments-list").append(t);
+            });
+        },
+        error: function() {
+            $("#gh-comments-list").append("Comments are not open for this post yet.");
+        }
+    });
+});
+</script>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Homer White &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="/js/jquery-1.12.3.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
+
+  </body>
+</html>
+
