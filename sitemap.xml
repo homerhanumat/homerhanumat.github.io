@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/hosting-on-your-github-user-page-via-submodule/</loc>
+      <lastmod>2017-05-28T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/addinplots/</loc>
       <lastmod>2017-05-25T00:00:00+00:00</lastmod>
     </url>
@@ -224,8 +233,28 @@
     
     <url>
     
+      <loc>/tags/github/</loc>
+      <lastmod>2017-05-28T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/googlevis/</loc>
       <lastmod>2014-09-03T20:30:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/hugo/</loc>
+      <lastmod>2017-05-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -376,6 +405,16 @@
     
       <loc>/tags/simulation/</loc>
       <lastmod>2015-07-03T19:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/submodules/</loc>
+      <lastmod>2017-05-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

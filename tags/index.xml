@@ -30,11 +30,29 @@
     </item>
     
     <item>
+      <title>Github</title>
+      <link>/tags/github/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Googlevis</title>
       <link>/tags/googlevis/</link>
       <pubDate>Wed, 03 Sep 2014 20:30:00 +0000</pubDate>
       
       <guid>/tags/googlevis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
@@ -125,24 +143,6 @@
       <pubDate>Fri, 11 Mar 2016 18:00:00 +0000</pubDate>
       
       <guid>/tags/r-studio-addins/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shiny</title>
-      <link>/tags/shiny/</link>
-      <pubDate>Fri, 03 Jul 2015 19:00:00 +0000</pubDate>
-      
-      <guid>/tags/shiny/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simulation</title>
-      <link>/tags/simulation/</link>
-      <pubDate>Fri, 03 Jul 2015 19:00:00 +0000</pubDate>
-      
-      <guid>/tags/simulation/</guid>
       <description></description>
     </item>
     

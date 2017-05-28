@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Academic Site</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in Hugo on Academic Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <lastBuildDate>Sun, 28 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/hugo/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hosting on your Github User Page via Submodule</title>
+      <link>/post/hosting-on-your-github-user-page-via-submodule/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hosting-on-your-github-user-page-via-submodule/</guid>
+      <description>&lt;p&gt;My primary technical blog is hosted by Github through my User repository (&lt;code&gt;homerhanumat.github.io&lt;/code&gt;).  Recently I switched my generator from Jekyll to Hugo.&lt;/p&gt;
+
+&lt;p&gt;From the User repository Github Pages requires that the site be served from the root of the repository (not from &lt;code&gt;docs&lt;/code&gt;).  Jekyll allowed us to build the site into the root, but Hugo builds into a specific directory, named &lt;code&gt;public&lt;/code&gt; by default.  Building into the root would look a bit messy, anyway.&lt;/p&gt;
+
+&lt;p&gt;I decided to handle the problem by creating a separate repository for my source code, then making the &lt;code&gt;public&lt;/code&gt; directory into a submodule of the source repo, with a remote pointed to my User repo.  The idea is taken from &lt;a href=&#34;https://stackoverflow.com/questions/12514197/convert-a-git-folder-to-a-submodule-retrospectively&#34; target=&#34;_blank&#34;&gt;Stackoverflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First make sure you have initialized your project as a git repository.  Go ahead and set the remote to a repo on Github&amp;mdash;or wherever you like, really.&lt;/p&gt;
+
+&lt;p&gt;Build your site with Hugo.  You now have a &lt;code&gt;public&lt;/code&gt; directory.  Then do the following in the terminal (replacing &amp;ldquo;username&amp;rdquo; with your own Github username):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd public
+git init
+git remote add origin https://github.com/username/username.github.io.git
+git add .
+touch .nojekyll  # so Github will not attempt to serve the site with Jekyll
+git commit -am &#39;first commit in submodule&#39;
+git push
+cd ..
+rm -rf folder public
+git commit -am &#39;deleting folder&#39;
+git submodule add https://github.com/username/username.github.io.git public
+git commit -am &#39;adding submodule&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now when you commit and push from the root of your project, the changes go to the remote for your source.  When you want to push changes up to the website itself, &lt;code&gt;cd&lt;/code&gt; into &lt;code&gt;public&lt;/code&gt;, commit changes and push to the &lt;code&gt;username.gihub.io&lt;/code&gt; remote.&lt;/p&gt;
+
+&lt;p&gt;When Hugo serves your site it modifies files in &lt;code&gt;public&lt;/code&gt; but leaves alone files that no longer correspond to anything in your source.  Sometimes you need to remove these files, so it&amp;rsquo;s recommended to make a clean start:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rm -rf public
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But you should NOT do this!  You&amp;rsquo;ll lose &lt;code&gt;.git&lt;/code&gt; and your submodule along with it.&lt;/p&gt;
+
+&lt;p&gt;When you need to remove junk files, it&amp;rsquo;s easiest to remove all files except &lt;code&gt;.nojekyll&lt;/code&gt; and the &lt;code&gt;git&lt;/code&gt; directory.  This can be accomplished from the terminal as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;shopt -s extglob
+cd public
+rm -rf !(.nojekyll|.git)
+cd ..   # back to the root of the project
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you can serve the site and &lt;code&gt;public&lt;/code&gt; will be replenished.&lt;/p&gt;
+
+&lt;p&gt;My remote source repo is at:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/homerhanumat/hugoBlog.git&#34; target=&#34;_blank&#34;&gt;https://github.com/homerhanumat/hugoBlog.git&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can see that the &lt;code&gt;public&lt;/code&gt; directory appears as a submodule.  Click on it and you&amp;rsquo;ll come to the User repo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/homerhanumat/homerhanumat.github.io.git&#34; target=&#34;_blank&#34;&gt;https://github.com/homerhanumat/homerhanumat.github.io.git&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The blog itself is hosted from this latter repo.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
