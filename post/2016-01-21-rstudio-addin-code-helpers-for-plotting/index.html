@@ -291,41 +291,9 @@ devtools::install_github(&quot;homerhanumat/addinplots&quot;)
 <div class="article-container">
   <div id="gh-comments-list"></div>
 
-<script
-			  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-			  crossorigin="anonymous"></script>
-
 <script>
-var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" + ""
-var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" + "" + "/comments"
-
-$(document).ready(function () {
-    $.ajax(api_url, {
-        headers: {Accept: "application/vnd.github.v3.html+json"},
-        dataType: "json",
-        success: function(comments) {
-            $("#gh-comments-list").append("<p id='comments-invite'>Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post</p>");
-            $.each(comments, function(i, comment) {
-
-                var date = new Date(comment.created_at);
-
-                var t = "<div class='gh-comment'>";
-                t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
-                t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
-                t += " posted at ";
-                t += "<em>" + date.toUTCString() + "</em>";
-                t += "<div class='gh-comment-hr'></div>";
-                t += comment.body_html;
-                t += "</div>";
-                $("#gh-comments-list").append(t);
-            });
-        },
-        error: function() {
-            $("#gh-comments-list").append("Comments are not open for this post yet.");
-        }
-    });
-});
+  var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" + ""
+  var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" + "" + "/comments"
 </script>
 </div>
 
@@ -357,6 +325,8 @@ $(document).ready(function () {
     <script src="/js/isotope.pkgd.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
     <script src="/js/hugo-academic.js"></script>
+    
+    <script src="/js/ghcomments.js"></script>
     
 
     
