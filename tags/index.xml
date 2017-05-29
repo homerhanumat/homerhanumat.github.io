@@ -102,6 +102,15 @@
     </item>
     
     <item>
+      <title>Meta Blogging</title>
+      <link>/tags/meta-blogging/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/meta-blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mosaic</title>
       <link>/tags/mosaic/</link>
       <pubDate>Tue, 01 Apr 2014 01:00:00 +0000</pubDate>
@@ -134,15 +143,6 @@
       <pubDate>Sat, 19 Dec 2015 20:00:00 +0000</pubDate>
       
       <guid>/tags/r-studio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Studio Addins</title>
-      <link>/tags/r-studio-addins/</link>
-      <pubDate>Fri, 11 Mar 2016 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-studio-addins/</guid>
       <description></description>
     </item>
     
