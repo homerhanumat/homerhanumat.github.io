@@ -30,8 +30,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
 
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Academic Site">
-  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Academic Site">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="HSW Academic">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="HSW Academic">
 
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
@@ -40,7 +40,7 @@
 
   
 
-  <title>Hosting on your Github User Page via Submodule | Academic Site</title>
+  <title>Hosting on your Github User Page via Submodule | HSW Academic</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -57,7 +57,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Academic Site</a>
+      <a class="navbar-brand" href="/">HSW Academic</a>
     </div>
 
     
@@ -255,7 +255,7 @@ touch .nojekyll  # so Github will not attempt to serve the site with Jekyll
 git commit -am 'first commit in submodule'
 git push
 cd ..
-rm -rf folder public
+rm -rf public
 git commit -am 'deleting folder'
 git submodule add https://github.com/username/username.github.io.git public
 git commit -am 'adding submodule'

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academic Site on Academic Site</title>
+    <title>HSW Academic on HSW Academic</title>
     <link>/</link>
-    <description>Recent content in Academic Site on Academic Site</description>
+    <description>Recent content in HSW Academic on HSW Academic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Homer White</copyright>
@@ -34,7 +34,7 @@ touch .nojekyll  # so Github will not attempt to serve the site with Jekyll
 git commit -am &#39;first commit in submodule&#39;
 git push
 cd ..
-rm -rf folder public
+rm -rf public
 git commit -am &#39;deleting folder&#39;
 git submodule add https://github.com/username/username.github.io.git public
 git commit -am &#39;adding submodule&#39;

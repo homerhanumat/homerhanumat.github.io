@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Knitr on Academic Site</title>
+    <title>Knitr on HSW Academic</title>
     <link>/tags/knitr/</link>
-    <description>Recent content in Knitr on Academic Site</description>
+    <description>Recent content in Knitr on HSW Academic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Homer White</copyright>
