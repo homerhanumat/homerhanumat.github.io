@@ -36,11 +36,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="/post/hosting-on-your-github-user-page-via-submodule/">
+  <link rel="canonical" href="/post/blogdown-demo-sites/">
 
   
 
-  <title>Hosting on your Github User Page via Submodule | HSW Academic</title>
+  <title>Demo Sites for Blogdown-ified Hugo Themes | HSW Academic</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -152,20 +152,17 @@
   
 
   <div class="article-container">
-    <h1 itemprop="name">Hosting on your Github User Page via Submodule</h1>
+    <h1 itemprop="name">Demo Sites for Blogdown-ified Hugo Themes</h1>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
-    <time datetime="2017-05-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      Sun, May 28, 2017
+    <time datetime="2017-06-05 20:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Jun 5, 2017
     </time>
   </span>
 
-  
-  
-  
   
 
   
@@ -174,13 +171,10 @@
   <span class="article-tags">
     <i class="fa fa-tags"></i>
     
-    <a href="/tags/github">Github</a
+    <a href="/tags/blogdown">blogdown</a
     >, 
     
     <a href="/tags/hugo">Hugo</a
-    >, 
-    
-    <a href="/tags/submodules">submodules</a
     >, 
     
     <a href="/tags/meta-blogging">Meta-blogging</a
@@ -196,35 +190,35 @@
   <ul class="share">
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fhosting-on-your-github-user-page-via-submodule%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fblogdown-demo-sites%2f"
          target="_blank">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Hosting%20on%20your%20Github%20User%20Page%20via%20Submodule&amp;url=%2fpost%2fhosting-on-your-github-user-page-via-submodule%2f"
+         href="https://twitter.com/intent/tweet?text=Demo%20Sites%20for%20Blogdown-ified%20Hugo%20Themes&amp;url=%2fpost%2fblogdown-demo-sites%2f"
          target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fhosting-on-your-github-user-page-via-submodule%2f&amp;title=Hosting%20on%20your%20Github%20User%20Page%20via%20Submodule"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fblogdown-demo-sites%2f&amp;title=Demo%20Sites%20for%20Blogdown-ified%20Hugo%20Themes"
          target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fhosting-on-your-github-user-page-via-submodule%2f&amp;title=Hosting%20on%20your%20Github%20User%20Page%20via%20Submodule"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fblogdown-demo-sites%2f&amp;title=Demo%20Sites%20for%20Blogdown-ified%20Hugo%20Themes"
          target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Hosting%20on%20your%20Github%20User%20Page%20via%20Submodule&amp;body=%2fpost%2fhosting-on-your-github-user-page-via-submodule%2f">
+         href="mailto:?subject=Demo%20Sites%20for%20Blogdown-ified%20Hugo%20Themes&amp;body=%2fpost%2fblogdown-demo-sites%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -237,62 +231,31 @@
 </div>
 
     <div class="article-style" itemprop="articleBody">
-      <p>My primary technical blog is hosted by Github through my User repository (<code>homerhanumat.github.io</code>).  Recently I switched my generator from Jekyll to Hugo.</p>
+      <p><a href="https://github.com/rstudio/blogdown" target="_blank"><strong>blogdown</strong></a>, Yihui Xie&rsquo;s new Hugo-based R-package for blogging, has begun to take off.</p>
 
-<p>From the User repository Github Pages requires that the site be served from the root of the repository (not from <code>docs</code>).  Jekyll allowed us to build the site into the root, but Hugo builds into a specific directory, named <code>public</code> by default.  Building into the root would look a bit messy, anyway.</p>
+<p>You can create a new site using any Hugo theme, but sometimes you must customize the theme a bit in order to enable certain expected features&mdash;such as MathJax&mdash;that are expected by bloggers who deal in statistics.  If you are new to static-site generators then you might prefer to have someone else handle the tweaks for you so you can get to blogging right away.  The study of the Hugo <a href="https://gohugo.io/overview/introduction/" target="_blank">documentation</a> can be deferred for a bit.</p>
 
-<p>I decided to handle the problem by creating a separate repository for my source code, then making the <code>public</code> directory into a submodule of the source repo, with a remote pointed to my User repo.  The idea is taken from <a href="https://stackoverflow.com/questions/12514197/convert-a-git-folder-to-a-submodule-retrospectively" target="_blank">Stackoverflow</a>.</p>
+<p>Yihui&rsquo;s tweak of the Lithium theme works great out of the box:</p>
 
-<p>First make sure you have initialized your project as a git repository.  Go ahead and set the remote to a repo on Github&mdash;or wherever you like, really.</p>
-
-<p>Build your site with Hugo.  You now have a <code>public</code> directory.  Then do the following in the terminal (replacing &ldquo;username&rdquo; with your own Github username):</p>
-
-<pre><code class="language-sh">cd public
-git init
-git remote add origin https://github.com/username/username.github.io.git
-git add .
-touch .nojekyll  # so Github will not attempt to serve the site with Jekyll
-git commit -am 'first commit in submodule'
-git push
-cd ..
-rm -rf public
-git commit -am 'deleting folder'
-git submodule add https://github.com/username/username.github.io.git public
-git commit -am 'adding submodule'
+<pre><code class="language-r">blogdown::new_site(theme = &quot;yihui/hugo-lithium-theme&quot;)
 </code></pre>
 
-<p>Now when you commit and push from the root of your project, the changes go to the remote for your source.  When you want to push changes up to the website itself, <code>cd</code> into <code>public</code>, commit changes and push to the <code>username.gihub.io</code> remote.</p>
+<p>You could also try my tweak of the sparse-but-wild <a href="https://github.com/dt801ts/sublime-hugo-theme" target="_blank">Sublime</a> theme:</p>
 
-<p>When Hugo serves your site it modifies files in <code>public</code> but leaves alone files that no longer correspond to anything in your source.  Sometimes you need to remove these files, so it&rsquo;s recommended to make a clean start:</p>
-
-<pre><code class="language-sh">rm -rf public
+<pre><code class="language-r">blogdown::new_site(theme = &quot;homerhanumat/sublimer-hugo&quot;)
 </code></pre>
 
-<p>But you should NOT do this!  You&rsquo;ll lose <code>.git</code> and your submodule along with it.</p>
+<p>The demo site for my Sublime tweak is <a href="https://homerhanumat.rbind.io/" target="_blank">here</a>
+.</p>
 
-<p>When you need to remove junk files, it&rsquo;s easiest to remove all files except <code>.nojekyll</code> and the <code>git</code> directory.  This can be accomplished from the terminal as follows:</p>
+<p>I have also tweaked the beautiful and minimal theme <a href="https://github.com/zhe/hugo-theme-slim" target="_blank">Slim</a>:</p>
 
-<pre><code class="language-sh">shopt -s extglob
-cd public
-rm -rf !(.nojekyll|.git)
-cd ..   # back to the root of the project
+<pre><code class="language-r">blogdown::new_site(theme = &quot;homerhanumat/hugo-theme-slim&quot;)
 </code></pre>
 
-<p>Now you can serve the site and <code>public</code> will be replenished.</p>
+<p>The demo site is <a href="https://slimdemo.netlify.com/" target="_blank">here</a>.</p>
 
-<p>My remote source repo is at:</p>
-
-<blockquote>
-<p><a href="https://github.com/homerhanumat/hugoBlog.git" target="_blank">https://github.com/homerhanumat/hugoBlog.git</a></p>
-</blockquote>
-
-<p>You can see that the <code>public</code> directory appears as a submodule.  Click on it and you&rsquo;ll come to the User repo:</p>
-
-<blockquote>
-<p><a href="https://github.com/homerhanumat/homerhanumat.github.io.git" target="_blank">https://github.com/homerhanumat/homerhanumat.github.io.git</a></p>
-</blockquote>
-
-<p>The blog itself is hosted from this latter repo.</p>
+<p>Happy blogging!</p>
 
     </div>
   </div>
@@ -303,13 +266,10 @@ cd ..   # back to the root of the project
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="/post/2016-03-11-rstudio-addinplots-installation/"><span
-      aria-hidden="true">&larr;</span> Installing the Addinplots Package</a></li>
+    <li class="previous"><a href="/post/hosting-on-your-github-user-page-via-submodule/"><span
+      aria-hidden="true">&larr;</span> Hosting on your Github User Page via Submodule</a></li>
     
 
-    
-    <li class="next"><a href="/post/blogdown-demo-sites/">Demo Sites for Blogdown-ified Hugo Themes <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>
@@ -320,8 +280,8 @@ cd ..   # back to the root of the project
   <div id="gh-comments-list"></div>
 
 <script>
-  var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" +  3 
-  var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" +  3  + "/comments"
+  var url = "https://github.com/homerhanumat/homerhanumat.github.io/issues/" +  4 
+  var api_url = "https://api.github.com/repos/homerhanumat/homerhanumat.github.io/issues/" +  4  + "/comments"
 </script>
 </div>
 

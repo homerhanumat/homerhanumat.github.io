@@ -7,8 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Homer White</copyright>
-    <lastBuildDate>Sun, 28 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jun 2017 20:00:00 +0000</lastBuildDate>
     <atom:link href="/tags/meta-blogging/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Demo Sites for Blogdown-ified Hugo Themes</title>
+      <link>/post/blogdown-demo-sites/</link>
+      <pubDate>Mon, 05 Jun 2017 20:00:00 +0000</pubDate>
+      
+      <guid>/post/blogdown-demo-sites/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/rstudio/blogdown&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;, Yihui Xie&amp;rsquo;s new Hugo-based R-package for blogging, has begun to take off.&lt;/p&gt;
+
+&lt;p&gt;You can create a new site using any Hugo theme, but sometimes you must customize the theme a bit in order to enable certain expected features&amp;mdash;such as MathJax&amp;mdash;that are expected by bloggers who deal in statistics.  If you are new to static-site generators then you might prefer to have someone else handle the tweaks for you so you can get to blogging right away.  The study of the Hugo &lt;a href=&#34;https://gohugo.io/overview/introduction/&#34; target=&#34;_blank&#34;&gt;documentation&lt;/a&gt; can be deferred for a bit.&lt;/p&gt;
+
+&lt;p&gt;Yihui&amp;rsquo;s tweak of the Lithium theme works great out of the box:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::new_site(theme = &amp;quot;yihui/hugo-lithium-theme&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You could also try my tweak of the sparse-but-wild &lt;a href=&#34;https://github.com/dt801ts/sublime-hugo-theme&#34; target=&#34;_blank&#34;&gt;Sublime&lt;/a&gt; theme:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::new_site(theme = &amp;quot;homerhanumat/sublimer-hugo&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The demo site for my Sublime tweak is &lt;a href=&#34;https://homerhanumat.rbind.io/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;
+.&lt;/p&gt;
+
+&lt;p&gt;I have also tweaked the beautiful and minimal theme &lt;a href=&#34;https://github.com/zhe/hugo-theme-slim&#34; target=&#34;_blank&#34;&gt;Slim&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;blogdown::new_site(theme = &amp;quot;homerhanumat/hugo-theme-slim&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The demo site is &lt;a href=&#34;https://slimdemo.netlify.com/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy blogging!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hosting on your Github User Page via Submodule</title>

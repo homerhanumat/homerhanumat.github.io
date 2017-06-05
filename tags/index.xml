@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Blogdown</title>
+      <link>/tags/blogdown/</link>
+      <pubDate>Mon, 05 Jun 2017 20:00:00 +0000</pubDate>
+      
+      <guid>/tags/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Extrapolation</title>
       <link>/tags/extrapolation/</link>
       <pubDate>Wed, 03 Sep 2014 20:30:00 +0000</pubDate>
@@ -50,7 +59,7 @@
     <item>
       <title>Hugo</title>
       <link>/tags/hugo/</link>
-      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Jun 2017 20:00:00 +0000</pubDate>
       
       <guid>/tags/hugo/</guid>
       <description></description>
@@ -104,7 +113,7 @@
     <item>
       <title>Meta Blogging</title>
       <link>/tags/meta-blogging/</link>
-      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Jun 2017 20:00:00 +0000</pubDate>
       
       <guid>/tags/meta-blogging/</guid>
       <description></description>
@@ -134,15 +143,6 @@
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-packages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Studio</title>
-      <link>/tags/r-studio/</link>
-      <pubDate>Sat, 19 Dec 2015 20:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-studio/</guid>
       <description></description>
     </item>
     
