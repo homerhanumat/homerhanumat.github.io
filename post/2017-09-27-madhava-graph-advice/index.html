@@ -275,7 +275,7 @@
 <h2>Making the Graph</h2>
 <p>First we’ll think about the graph. Since it is made from functions in the <strong>ggplot2</strong> package, you will need to make sure that you load the package when you are designing the function.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
 <pre class="r"><code>library(ggplot2)</code></pre>
-<p>Now suppose that the value of the parameter <code>n</code> is 10. Then by the time you get to making the graph you’ll have the terms:</p>
+<p>Now suppose that the value of the parameter <code>n</code> is 10. Then by the time you get around to making the graph you’ll have the terms:</p>
 <pre class="r"><code>terms &lt;- 1:n
 terms</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
@@ -324,7 +324,7 @@ terms</code></pre>
 <li>get the sum of the first n terms</li>
 </ul>
 <p>At each step in above process, we will need to store our sum in the <code>results</code> vector, so that it isn’t lost.</p>
-<p>The natural way to accomplish the above task is to use a <code>for</code>-loop in whihc we iterate by index and store results. The outline of such a loop is:</p>
+<p>The natural way to accomplish the above task is to use a <code>for</code>-loop in which we iterate by index and store results. The outline of such a loop is:</p>
 <pre class="r"><code>results &lt;- numeric()
 for ( i in 1:n ) {
   
