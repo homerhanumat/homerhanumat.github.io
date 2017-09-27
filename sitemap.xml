@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/2017-09-27-madhava-graph-advice/</loc>
+      <lastmod>2017-09-27T10:30:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/blogdown-demo-sites/</loc>
       <lastmod>2017-06-05T20:00:00+00:00</lastmod>
     </url>
@@ -195,7 +204,7 @@
     <url>
     
       <loc>/aggregators/</loc>
-      <lastmod>2017-06-05T20:00:00+00:00</lastmod>
+      <lastmod>2017-09-27T10:30:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -215,7 +224,7 @@
     <url>
     
       <loc>/aggregators/</loc>
-      <lastmod>2017-06-05T20:00:00+00:00</lastmod>
+      <lastmod>2017-09-27T10:30:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -243,8 +252,28 @@
     
     <url>
     
+      <loc>/tags/csc115/</loc>
+      <lastmod>2017-09-27T10:30:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/extrapolation/</loc>
       <lastmod>2014-09-03T20:30:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/flow-control/</loc>
+      <lastmod>2017-09-27T10:30:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
