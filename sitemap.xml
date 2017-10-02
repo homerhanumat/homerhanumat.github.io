@@ -412,8 +412,8 @@
     
     <url>
     
-      <loc>/aggregators/r-bloggers/</loc>
-      <lastmod>2015-12-15T20:00:00+00:00</lastmod>
+      <loc>/tags/r-bloggers/</loc>
+      <lastmod>2016-01-21T18:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -422,8 +422,8 @@
     
     <url>
     
-      <loc>/tags/r-bloggers/</loc>
-      <lastmod>2016-01-21T18:00:00+00:00</lastmod>
+      <loc>/aggregators/r-bloggers/</loc>
+      <lastmod>2015-12-15T20:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

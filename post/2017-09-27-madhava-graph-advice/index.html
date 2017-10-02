@@ -325,7 +325,7 @@ terms</code></pre>
 </ul>
 <p>At each step in above process, we will need to store our sum in the <code>results</code> vector, so that it isn’t lost.</p>
 <p>The natural way to accomplish the above task is to use a <code>for</code>-loop in which we iterate by index and store results. The outline of such a loop is:</p>
-<pre class="r"><code>results &lt;- numeric()
+<pre class="r"><code>results &lt;- numeric(n)
 for ( i in 1:n ) {
   
   results[i] &lt;- the sum of the first i terms
