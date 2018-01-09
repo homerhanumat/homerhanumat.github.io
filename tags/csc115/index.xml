@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Csc115 on HSW Academic</title>
+    <title>Csc115 on Homer&#39;s Academic Blog</title>
     <link>/tags/csc115/</link>
-    <description>Recent content in Csc115 on HSW Academic</description>
+    <description>Recent content in Csc115 on Homer&#39;s Academic Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2017 Homer White</copyright>
+    <language>en</language>
     <lastBuildDate>Wed, 27 Sep 2017 10:30:00 +0000</lastBuildDate>
-    <atom:link href="/tags/csc115/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/tags/csc115/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Guidance on the Madhava Graph Problem</title>
@@ -16,135 +17,9 @@
       <pubDate>Wed, 27 Sep 2017 10:30:00 +0000</pubDate>
       
       <guid>/post/2017-09-27-madhava-graph-advice/</guid>
-      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This post provides a bit of guidance for students in CSC 115 who are working on the &lt;a href=&#34;http://homerhanumat.com/r-notes/exercises-2.html&#34;&gt;Madhava Graph exercise&lt;/a&gt; in Chapter 4 of the course text.&lt;/p&gt;
-&lt;!--more--&gt;
-&lt;p&gt;As you will recall, the statement of the problem is as follows:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Recall the function &lt;code&gt;madhavaPI()&lt;/code&gt; from &lt;a href=&#34;&#34;&gt;Section 3.4.1&lt;/a&gt;. Use this function to write a function called &lt;code&gt;madhavaGraph()&lt;/code&gt; that will do the following: given a number &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, the function uses &lt;strong&gt;ggplot2&lt;/strong&gt; to produce a line graph of the first &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; approximations to &lt;span class=&#34;math inline&#34;&gt;\(\pi\)&lt;/span&gt; using the initial terms of the Madhava series.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The plot should be a line graph similar to the one produced by the &lt;code&gt;collatz()&lt;/code&gt; functions from this Chapter. The function should take a single argument &lt;code&gt;n&lt;/code&gt;, whose default value is 10.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;It should validate the input: if the number entered is not at least 1, then the function should should explain to the user that the he/she must enter a positive number, and then stop.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Outline&lt;/h2&gt;
-&lt;p&gt;Based on the specification in the problem, you can set up an initial outline of the desired function, as follows:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;madhavaGraph &amp;lt;- function(n = 10) {
-  
-  validate the input: if n isn&amp;#39;t at least 1, stop the function
-    
-  find the sums:
-    * the sum of the first term (4)
-    * the sum of the first and second terms (4 - 4/3)
-    * the sum of the first three terms ( 4 - 4/3 + 4/5)
-    * and so on until ...
-    * the sum of the first n terms
-  make sure these sums are stored in a vector (let&amp;#39;s call it &amp;quot;results&amp;quot;)
-  
-  make the plot:
-    - the vector 1:n (call it &amp;quot;terms&amp;quot;) gives the x-coordinates of the points
-    - the results vector gives y-coordinates
-  
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, the body of the function has three primary parts:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;validating the input&lt;/li&gt;
-&lt;li&gt;finding the sums and storing them in the &lt;code&gt;results&lt;/code&gt; vector&lt;/li&gt;
-&lt;li&gt;making the plot.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I’ll leave Part 1 entirely to you, but say a bit more about parts 2 and 3.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;making-the-graph&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Making the Graph&lt;/h2&gt;
-&lt;p&gt;First we’ll think about the graph. Since it is made from functions in the &lt;strong&gt;ggplot2&lt;/strong&gt; package, you will need to make sure that you load the package when you are designing the function.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now suppose that the value of the parameter &lt;code&gt;n&lt;/code&gt; is 10. Then by the time you get around to making the graph you’ll have the terms:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;terms &amp;lt;- 1:n
-terms&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1]  1  2  3  4  5  6  7  8  9 10&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You’ll also have the sums, another vector of length 10:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738
-##  [8] 3.017072 3.252366 3.041840&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;From our study of the Collatz function, we know that the way to make a line graph of these points is:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plotTitle &amp;lt;- paste0(&amp;quot;The first &amp;quot;, n, &amp;quot; Madhava sums&amp;quot;)
-  p &amp;lt;- ggplot(mapping = aes(x = terms, y = results)) +
-    geom_point() + geom_line() +
-    labs( x = &amp;quot;number of terms&amp;quot;, y = &amp;quot;Madhava sum&amp;quot;,
-          title = plotTitle)
-  print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2017-09-27-madhava-graph-advice_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;90%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Hence we can fill in the outline of our function a bit:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;madhavaGraph &amp;lt;- function(n = 10) {
-  
-  validate the input: if n isn&amp;#39;t at least 1, stop the function
-    
-  find the sums:
-    * the sum of the first term (4)
-    * the sum of the first and second terms (4 - 4/3)
-    * the sum of the first three terms ( 4 - 4/3 + 4/5)
-    * and so on until ...
-    * the sum of the first n terms
-  make sure these sums are stored in a vector (let&amp;#39;s call it &amp;quot;results&amp;quot;)
-  
- plotTitle &amp;lt;- paste0(&amp;quot;The first &amp;quot;, n, &amp;quot; Madhava sums&amp;quot;)
-  p &amp;lt;- ggplot(mapping = aes(x = terms, y = results)) +
-    geom_point() + geom_line() +
-    labs( x = &amp;quot;number of terms&amp;quot;, y = &amp;quot;Madhava sum&amp;quot;,
-          title = plotTitle)
-  print(p)
-  
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;finding-and-storing-the-sums&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Finding and Storing the Sums&lt;/h2&gt;
-&lt;p&gt;The outline for this part of the task looked like:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;get the sum of the first term (just 1)&lt;/li&gt;
-&lt;li&gt;get the sum of the first and second terms (&lt;span class=&#34;math inline&#34;&gt;\(4 - 4/3\)&lt;/span&gt;)&lt;/li&gt;
-&lt;li&gt;get the sum of the first three terms (&lt;span class=&#34;math inline&#34;&gt;\(4 - 4/3 + 4/5\)&lt;/span&gt;)&lt;/li&gt;
-&lt;li&gt;and so on until …&lt;/li&gt;
-&lt;li&gt;get the sum of the first n terms&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;At each step in above process, we will need to store our sum in the &lt;code&gt;results&lt;/code&gt; vector, so that it isn’t lost.&lt;/p&gt;
-&lt;p&gt;The natural way to accomplish the above task is to use a &lt;code&gt;for&lt;/code&gt;-loop in which we iterate by index and store results. The outline of such a loop is:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results &amp;lt;- numeric(n)
-for ( i in 1:n ) {
-  
-  results[i] &amp;lt;- the sum of the first i terms
-  
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We already know how to find the sum of the first &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; terms: we can just use the function &lt;code&gt;madhavaPI()&lt;/code&gt; from Chapter 3:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;madhavaPI &amp;lt;- function(n = 1000000) {
-  k &amp;lt;- 1:n
-  terms &amp;lt;- (-1)^(k+1)*4/(2*k-1)
-  sum(terms)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Hence when you are working inside the loop, you can get and store the results all in one line:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results[i] &amp;lt;- madhavaPI(i)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Well, to be totally truthful, you can do this &lt;em&gt;provided that&lt;/em&gt; R knows what &lt;code&gt;madhavaPI()&lt;/code&gt; is. Hence you must either:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;hope that whoever uses &lt;code&gt;madhavaGraph()&lt;/code&gt; has &lt;code&gt;madhavaPI()&lt;/code&gt; in their Global Environment so that &lt;code&gt;madhavaGraph()&lt;/code&gt; can look up the name &lt;code&gt;madhavaPI&lt;/code&gt; when it needs it, or&lt;/li&gt;
-&lt;li&gt;define &lt;code&gt;madhavaPI()&lt;/code&gt; inside the body of &lt;code&gt;madhavaGraph()&lt;/code&gt;, before you start computing any sums.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The latter seems to be the safer choice!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;put-it-all-together&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Put It All Together&lt;/h2&gt;
-&lt;p&gt;You still have the task of filling in the outline completely and then testing &lt;code&gt;madhavaGraph()&lt;/code&gt; until it works.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The function itself does not need to load &lt;strong&gt;ggplot2&lt;/strong&gt;, but you should make sure to tell anyone who plans to use the function that they need to load the package!&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <description>Introduction This post provides a bit of guidance for students in CSC 115 who are working on the Madhava Graph exercise in Chapter 4 of the course text.
+ As you will recall, the statement of the problem is as follows:
+ Recall the function madhavaPI() from Section 3.4.1. Use this function to write a function called madhavaGraph() that will do the following: given a number \(n\), the function uses ggplot2 to produce a line graph of the first \(n\) approximations to \(\pi\) using the initial terms of the Madhava series.</description>
     </item>
     
   </channel>
