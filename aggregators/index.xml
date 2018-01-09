@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aggregators on Homer&#39;s Academic Blog</title>
+    <link>/aggregators/</link>
+    <description>Recent content in Aggregators on Homer&#39;s Academic Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Sep 2017 10:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="/aggregators/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/aggregators/</link>
+      <pubDate>Wed, 27 Sep 2017 10:30:00 +0000</pubDate>
+      
+      <guid>/aggregators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Bloggers</title>
+      <link>/aggregators/r-bloggers/</link>
+      <pubDate>Tue, 15 Dec 2015 20:00:00 +0000</pubDate>
+      
+      <guid>/aggregators/r-bloggers/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>adhavaPI() from Section 3.4.1. Use this function to write a function called madhavaGraph() that will do the following: given a number \(n\), the function uses ggplot2 to produce a line graph of the first \(n\) approximations to \(\pi\) using the initial terms of the Madhava series.</description>
+    </item>
+    
+    <item>
+      <title>Demo Sites for Blogdown-ified Hugo Themes</title>
+      <link>/post/blogdown-demo-sites/</link>
+      <pubDate>Mon, 05 Jun 2017 20:00:00 +0000</pubDate>
+      
+      <guid>/post/blogdown-demo-sites/</guid>
+      <description>blogdown, Yihui Xie&amp;rsquo;s new Hugo-based R-package for blogging, has begun to take off.
+You can create a new site using any Hugo theme, but sometimes you must customize the theme a bit in order to enable certain expected features&amp;mdash;such as MathJax&amp;mdash;that are expected by bloggers who deal in statistics. If you are new to static-site generators then you might prefer to have someone else handle the tweaks for you so you can get to blogging right away.</description>
+    </item>
+    
+  </channel>
+</rss>

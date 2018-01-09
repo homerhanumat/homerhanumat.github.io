@@ -138,29 +138,20 @@
     </item>
     
     <item>
-      <title>R Bloggers</title>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Thu, 21 Jan 2016 18:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-bloggers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Studio</title>
-      <link>/tags/r-studio/</link>
-      <pubDate>Sat, 19 Dec 2015 20:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-studio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Studio Addins</title>
-      <link>/tags/r-studio-addins/</link>
+      <title>Rstudio</title>
+      <link>/tags/rstudio/</link>
       <pubDate>Fri, 11 Mar 2016 18:00:00 +0000</pubDate>
       
-      <guid>/tags/r-studio-addins/</guid>
+      <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstudio Addins</title>
+      <link>/tags/rstudio-addins/</link>
+      <pubDate>Thu, 21 Jan 2016 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio-addins/</guid>
       <description></description>
     </item>
     
